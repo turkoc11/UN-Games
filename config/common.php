@@ -63,10 +63,10 @@ $config = [
         'cache' => [
             'class' => 'app\components\Redis',
         ],
-//        'mailer' => [
-//            'class' => 'yii\sendinblue\transactional\Mailer',
-//            'apikey' => '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',
-//        ],
+        'mailer' => [
+            'class' => 'yii\sendinblue\transactional\Mailer',
+            'apikey' => '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',
+        ],
         'stripe' => [
             'class' => 'ruskid\stripe\Stripe',
             'publicKey' => "pk_test_51Ploc5BXDmYtXMwttNzTHLRqLaoUd085xv2RYpP8a5ijuDOQat907zdvaoy416qvuFZZkCsX1WodTnhL95W1eKEo00YMHWXCxZ",
