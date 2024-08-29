@@ -1,0 +1,61 @@
+<?php
+
+return [
+    'enablePrettyUrl' => true,
+    'showScriptName' => false,
+    'enableStrictParsing' => true,
+    'class' => 'app\components\LangUrlManager',
+    'rules' => [
+
+        '<_a:(login|logout|confirm-email|password-reset)>' => 'user/default/<_a>',
+        // 'site' => 'site/default/index',
+        'registration' => 'user/registration/index',
+        'registration-validate' => 'user/registration/validate',
+        'registration-save' => 'user/registration/save',       
+        //DEFAULT
+        'elfinder/<_a:[\w\-]+>' => 'admin/elfinder/<_a>',
+        'admin' => 'admin/default/index',
+        'login' => 'user/default/login',
+        'dashboard/<_a:[\w\-]+>' => 'main/dashboard/<_a>',
+         'post/<id:\d+>' => 'main/post/view',
+        'game/<id:\d+>' => 'main/game/view',
+         'customers/<_a:[\w\-]+>' => 'main/customers/<_a>',
+        // 'assays/<_a:[\w\-]+>' => 'main/assays/<_a>',
+        // 'uom/<_a:[\w\-]+>' => 'main/uom/<_a>',
+        // 'indicators/<_a:[\w\-]+>' => 'main/indicators/<_a>',
+        // 'branches/<_a:[\w\-]+>' => 'main/branches/<_a>',
+//         'post/<_a:[\w\-]+>' => 'main/post/<_a>',
+        // 'reports/<_a:[\w\-]+>' => 'main/reports/<_a>',
+        // 'user/assays' => 'main/user/assays',
+        // 'user/history' => 'main/user/history',
+        'payment/form' => 'main/payment/form',
+         'payment/create' => 'main/payment/create',
+        // 'gii' => 'gii/default/index',
+        'admin/news' => 'admin/news/index',
+        'feedback/create' => 'main/feedback/create',
+        'subscribe/create' => 'main/subscribe/create',
+        // 'rss' => 'main/default/rss',        
+        'services/<link:[\w/\-]+>' => 'main/default/index',
+        'sitemap.xml' => 'main/default/sitemap',
+        'admin/users/update/<id:\d+>' => 'admin/users/update',
+
+
+        '<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/<_a>',
+        '<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>/<parms:[\w\-]+>' => '<_m>/<_c>/<_a>',
+        '<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_m>/<_c>/<_a>',
+        '<_m:[\w\-]+>/<_c:[\w\-]+>/<id:\d+>' => '<_m>/<_c>/view',
+        '<_m:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>/<parms:[\w\-]+>' => '<_m>/default/<_a>',
+        '<_m:[\w\-]+>/<id:\d+>/<_a:[\w\-]+>' => '<_m>/default/<_a>',
+        '<_m:[\w\-]+>/<id:\d+>' => '<_m>/default/view',
+        '<_m:[\w\-]+>/<_c:[\w\-]+>/<_a:[\w\-]+>' => '<_m>/<_c>/<_a>',
+        '<sect:[\w/\-]+>/<link:[\w/\-]+>' => 'main/default/post',
+//        '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/index',
+//        '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/update',
+//        '<_m:[\w\-]+>/<_c:[\w\-]+>' => '<_m>/<_c>/view',
+
+
+        //'<_m:[\w\-]+>' => '<_m>/default/index',
+        '<link:[\w/\-]+>' => 'main/default/index',
+        '' => 'main/default/index',
+    ],
+];

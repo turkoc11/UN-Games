@@ -1,0 +1,90 @@
+{
+    "name": "yiisoft/yii2-app-basic",
+    "description": "Yii 2 Basic Project Template",
+    "keywords": ["yii2", "framework", "basic", "project template"],
+    "homepage": "http://www.yiiframework.com/",
+    "type": "project",
+    "license": "BSD-3-Clause",
+    "support": {
+        "issues": "https://github.com/yiisoft/yii2/issues?state=open",
+        "forum": "http://www.yiiframework.com/forum/",
+        "wiki": "http://www.yiiframework.com/wiki/",
+        "irc": "irc://irc.freenode.net/yii",
+        "source": "https://github.com/yiisoft/yii2"
+    },
+    "minimum-stability": "stable",
+    "require": {
+        "php": ">=7.2.0",
+        "yiisoft/yii2": "~2.0.14",
+        "yiisoft/yii2-bootstrap": "~2.0.0",
+        "yiisoft/yii2-swiftmailer": "~2.0.0",
+        "yiisoft/yii2-redis": "~2.0.0",
+        "bitcko/yii2-bitcko-mailer": "dev-master",
+        "yiisoft/yii2-jui": "^2.0",
+        "yiidoc/yii2-redactor": "*",
+        "mihaildev/yii2-elfinder": "*",
+        "mihaildev/yii2-ckeditor": "*",
+        "lireincore/yii2-imgcache": "^0.4.0",
+        "letyii/yii2-imagecache": "*",
+        "zelenin/yii2-rss": "~0.1",
+        "unclead/yii2-multiple-input": "~2.0",
+        "phpoffice/phpexcel": "dev-develop",
+        "kop/yii2-turbosms": "dev-master",
+        "amoracr/yii2-backup": "*",
+        "zelenin/yii2-slug-behavior": "^1.5",
+        "alexantr/yii2-elfinder": "^1.8",
+        "alexantr/yii2-tinymce": "^1.0",
+        "silverback/yii2-sendinblue": "^1.0",
+        "ruskid/yii2-stripe": "dev-master",
+        "stripe/stripe-php": "^15.7"
+    },
+    "require-dev": {
+        "yiisoft/yii2-debug": "~2.0.0",
+        "yiisoft/yii2-gii": "~2.0.0",
+        "yiisoft/yii2-faker": "~2.0.0",
+
+        "codeception/base": "^2.2.3",
+        "codeception/verify": "~0.3.1",
+        "codeception/specify": "~0.4.3"
+    },
+    "config": {
+        "process-timeout": 1800,
+        "fxp-asset": {
+            "enabled": false
+        },
+        "allow-plugins": {
+            "yiisoft/yii2-composer": true
+        }
+    },
+    "scripts": {
+        "post-install-cmd": [
+            "yii\\composer\\Installer::postInstall"
+        ],
+        "post-create-project-cmd": [
+            "yii\\composer\\Installer::postCreateProject",
+            "yii\\composer\\Installer::postInstall"
+        ]
+    },
+    "extra": {
+        "yii\\composer\\Installer::postCreateProject": {
+            "setPermission": [
+                {
+                    "runtime": "0775",
+                    "web/assets": "0775",
+                    "yii": "0755"
+                }
+            ]
+        },
+        "yii\\composer\\Installer::postInstall": {
+            "generateCookieValidationKey": [
+                "config/web.php"
+            ]
+        }
+    },
+    "repositories": [
+        {
+            "type": "composer",
+            "url": "https://asset-packagist.org"
+        }
+    ]
+}

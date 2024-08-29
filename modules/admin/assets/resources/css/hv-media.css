@@ -1,0 +1,751 @@
+@media screen and (max-width: 1679px) {
+    .builder-option {
+        padding: 33px 50px 40px;
+    }
+
+    .under-constr.profile-block .white-box {
+        padding-top: 120px;
+        padding-bottom: 120px;
+    }
+
+    .uc-pic-wp {
+        width: 300px;
+        height: 300px;
+    }
+}
+
+@media screen and (max-width: 1535px) {
+    .profile-block .white-box {
+        padding-bottom: 50px;
+    }
+
+    .profile-file {
+        width: 190px;
+        height: 190px;
+    }
+
+    .profile-preview-info {
+        max-width: calc(100% - 190px);
+    }
+
+    .cs-col-4 {
+        -ms-flex: 0 0 50%;
+        flex: 0 0 50%;
+        max-width: 440px;
+    }
+
+    .cs-col-4:not(:last-of-type) {
+        margin-bottom: 24px;
+    }
+
+    .content-block .white-box.cs-ptb-200 {
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+
+    .cs-ptb-200 {
+        padding-top: 150px;
+        padding-bottom: 150px;
+    }
+
+    .uc-pic img {
+        max-height: 80px;
+    }
+
+    .uc-pic-wp {
+        width: 275px;
+        height: 275px;
+    }
+}
+
+@media screen and (max-width: 1199px) {
+    .profile-preview-dynamic {
+        padding-left: 50px;
+    }
+
+    .content-block .white-box.cs-ptb-200 {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .cs-ptb-200 {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+}
+
+@media screen and (min-width: 992px) {
+    .md-w-100 {
+        width: 100%;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .content-block .white-box {
+        padding: 40px;
+    }
+
+    .profile-block .white-box {
+        padding-bottom: 40px;
+    }
+
+    .default-field .form-group {
+        margin-bottom: 20px;
+    }
+
+    /*.default-field .form-control, .default-field .select2-container--default .select2-selection--single {*/
+    /*padding: 0 20px;*/
+    /*height: 55px;*/
+    /*}*/
+    /*.default-field .control-label {*/
+    /*padding-left: 20px;*/
+    /*}*/
+    /*.default-field .select2-container--default .select2-selection--single .select2-selection__rendered {*/
+    /*height: 55px;*/
+    /*line-height: 55px;*/
+    /*}*/
+    /*.default-field .select2-container--default .select2-selection--single .select2-selection__arrow {*/
+    /*width: 40px;*/
+    /*}*/
+    /*.default-field .select2-container--default .select2-selection--single {*/
+    /*padding-right: 40px;*/
+    /*}*/
+    .content-block .white-box .box-title {
+        font-size: 28px;
+    }
+
+    h1 {
+        font-size: 32px;
+        margin-bottom: 20px;
+    }
+
+    .cs-mb-80 {
+        margin-bottom: 60px;
+    }
+
+    .cs-mb-40 {
+        margin-bottom: 30px;
+    }
+
+    .cs-sm-left {
+        width: 200px;
+    }
+
+    .cs-sm-right {
+        width: calc(100% - 200px);
+    }
+
+    .builder-option {
+        padding: 33px 30px 40px;
+    }
+
+    .bo-desc > li:before {
+        left: -20px;
+    }
+
+    .radio-field .control-label {
+        padding-left: 0;
+    }
+
+    .with-postfix .form-group {
+        margin-bottom: 0;
+    }
+
+    .with-postfix .field-postfix {
+        line-height: 55px;
+        padding-top: 24px;
+    }
+
+    .uc-pic img {
+        max-height: 70px;
+    }
+
+    .uc-pic-wp {
+        width: 250px;
+        height: 250px;
+        padding: 25px;
+        margin-bottom: 40px;
+    }
+
+    .profile-block-mtb .white-box {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+}
+
+@media (min-width: 1170px) {
+    .hide-sidebar .sidebar {
+        left: -320px;
+    }
+}
+
+@media (max-width: 1170px) {
+    .content-wrapper .sidebar {
+        left: -320px;
+    }
+}
+
+@media (min-width: 768px) {
+    .sidebar {
+        width: 240px;
+    }
+
+    .sidebar:hover {
+        width: 240px;
+    }
+
+    #page-wrapper {
+        margin: 0 0 0 240px;
+    }
+
+    .fix-header .navbar-static-top {
+        z-index: 9999;
+    }
+
+    .modal-dialog {
+        margin: 80px auto 30px;
+    }
+}
+
+@media screen and (max-width: 767px) {
+    .profile-top {
+        flex-wrap: wrap;
+    }
+
+    .profile-file {
+        margin: 0 auto 30px;
+    }
+
+    .profile-preview-info {
+        max-width: 100%;
+        min-height: 56px;
+        transition: 0.3s min-height ease-in-out;
+        -webkit-transition: 0.3s min-height ease-in-out;
+        -moz-transition: 0.3s min-height ease-in-out;
+        -o-transition: 0.3s min-height ease-in-out;
+    }
+
+    .profile-preview-info > div {
+        padding-left: 0;
+        display: block;
+        text-align: center;
+    }
+
+    .profile-preview-static {
+        align-items: center;
+    }
+
+    .profile-preview-info h4 {
+        position: relative;
+        display: inline-block;
+    }
+
+    .profile-preview-static h4 .toggle-info {
+        position: absolute;
+        top: 0;
+        right: -35px;
+        margin-left: 0;
+    }
+
+    .content-block .white-box .box-title {
+        font-size: 26px;
+    }
+
+    .profile-preview-info span {
+        display: block;
+    }
+
+    .profile-preview-dynamic {
+        max-height: 100%;
+    }
+
+    .profile-preview-info.dynamic-active {
+        min-height: 226px;
+    }
+
+    .profile-preview-dynamic > div {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 100%;
+        text-align: left;
+    }
+
+    .profile-preview-info.dynamic-active.field-added {
+        min-height: 294px;
+    }
+
+    .default-field .help-block {
+        padding-right: 20px;
+    }
+
+    .top-left-part {
+        width: 60px;
+    }
+
+    .profile-avatar {
+        margin-right: 5px;
+    }
+
+    .caret {
+        border-top: 4px dashed;
+        border-top: 4px solid;
+        border-right: 4px solid transparent;
+        border-left: 4px solid transparent;
+    }
+
+    .sidebar .sidebar-head h3 i {
+        font-size: 14px;
+    }
+
+    #side-menu > li > a {
+        padding: 12px 35px 12px 20px;
+    }
+
+    #side-menu > li > a > i {
+        margin-right: 12px;
+    }
+
+    .sidebar #side-menu .nav-second-level li a {
+        padding: 5px 10px 5px 56px;
+    }
+
+    .sidebar #side-menu .nav-second-level li:first-of-type {
+        margin-top: 5px;
+    }
+
+    .sidebar #side-menu .nav-second-level li:last-of-type {
+        margin-bottom: 5px;
+    }
+
+    #side-menu {
+        padding-top: 5px;
+    }
+
+    .cs-sm-left {
+        width: 100%;
+        padding-bottom: 30px;
+        margin-bottom: 30px;
+    }
+
+    .cs-sm-right {
+        width: 100%;
+    }
+
+    .steps-nav li:not(:last-of-type) .steps-icon:before {
+        width: 100px;
+    }
+
+    .steps-nav li:not(:last-of-type) {
+        padding-right: 36px;
+    }
+
+    .cs-mb-80 {
+        margin-bottom: 40px;
+    }
+
+    h3 {
+        font-size: 24px;
+        line-height: 28px;
+        margin-bottom: 12px;
+    }
+
+    .cs-mb-40 {
+        margin-bottom: 20px;
+    }
+
+    .default-field .control-label .default-tooltip {
+        margin-left: 6px;
+    }
+
+    .steps-nav {
+        flex-direction: column;
+    }
+
+    .steps-nav li:not(:last-of-type) {
+        padding-right: 0;
+        padding-bottom: 50px;
+    }
+
+    .steps-nav li:not(:last-of-type) .steps-icon:before {
+        width: 4px;
+        height: 40px;
+        left: 0;
+        top: auto;
+        bottom: -80px;
+        right: 0;
+        margin-top: 0;
+        margin-left: auto;
+        margin-right: auto;
+    }
+
+    .steps-nav li.active .steps-icon:before {
+        background-image: linear-gradient(to top, #e5e5e5, #e2effa);
+    }
+
+    .cs-col-4 {
+        -ms-flex: 0 0 100%;
+        flex: 0 0 100%;
+        max-width: 440px;
+    }
+
+    .bo-desc > li:not(:last-of-type) {
+        margin-bottom: 8px;
+    }
+
+    .bo-desc {
+        margin-bottom: 30px;
+    }
+
+    .content-block .white-box.cs-ptb-200 {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .cs-ptb-200 {
+        padding-top: 80px;
+        padding-bottom: 80px;
+    }
+
+    .top-left-part .logo img {
+        max-height: 25px;
+    }
+
+    .uc-pic-wp {
+        width: 220px;
+        height: 220px;
+        padding: 20px;
+        margin-bottom: 35px;
+    }
+
+    .under-constr.profile-block .white-box {
+        padding-top: 100px;
+        padding-bottom: 100px;
+    }
+
+    .uc-pic img {
+        max-height: 60px;
+    }
+}
+
+@media screen and (max-width: 575px) {
+    .content-block .white-box {
+        padding: 20px;
+    }
+
+    .profile-block .white-box {
+        padding-bottom: 20px;
+    }
+
+    .content-block {
+        padding: 20px;
+    }
+
+    .profile-file {
+        width: 150px;
+        height: 150px;
+    }
+
+    .profile-file {
+        margin: 0 auto 20px;
+    }
+
+    .profile-preview-info h4 {
+        font-size: 20px;
+    }
+
+    .profile-file label {
+        width: 40px;
+        height: 40px;
+        background-size: 18px;
+        box-shadow: inset 0 0 0 3px #e2effa;
+        -webkit-box-shadow: inset 0 0 0 3px #e2effa;
+        -moz-box-shadow: inset 0 0 0 3px #e2effa;
+        -o-box-shadow: inset 0 0 0 3px #e2effa;
+    }
+
+    .profile-preview-info span {
+        font-size: 14px;
+    }
+
+    .profile-preview-static h4 .toggle-info {
+        top: -2px;
+        right: -30px;
+    }
+
+    .profile-preview-info {
+        min-height: 49px;
+    }
+
+    .content-block .white-box .box-title span {
+        display: block;
+        font-size: 14px;
+    }
+
+    .content-block .white-box .box-title {
+        font-size: 22px;
+        display: block;
+        width: 100%;
+        text-align: center;
+    }
+
+    .profile-file label:hover {
+        box-shadow: inset 0 0 0 3px #317CBB;
+        -webkit-box-shadow: inset 0 0 0 3px #317CBB;
+        -moz-box-shadow: inset 0 0 0 3px #317CBB;
+        -o-box-shadow: inset 0 0 0 3px #317CBB;
+        background-size: 18px;
+    }
+
+    h1 {
+        font-size: 26px;
+        margin-bottom: 15px;
+    }
+
+    .cs-mb-80 {
+        margin-bottom: 30px;
+    }
+
+    h3 {
+        font-size: 20px;
+        line-height: 22px;
+        margin-bottom: 10px;
+    }
+
+    p {
+        font-size: 14px;
+        margin-bottom: 4px;
+    }
+
+    .bo-pic {
+        height: 58px;
+    }
+
+    .bo-pic img {
+        max-height: 58px;
+    }
+
+    h4 {
+        font-size: 18px;
+        line-height: 22px;
+    }
+
+    .bo-desc li {
+        font-size: 15px;
+        line-height: 1.75;
+    }
+
+    .bo-desc > li:before {
+        left: -18px;
+        top: 9px;
+    }
+
+    .bo-desc {
+        margin-bottom: 20px;
+        padding-left: 15px;
+    }
+
+    .builder-option {
+        padding: 20px 15px 20px;
+        border-radius: 10px;
+    }
+
+    .default-button {
+        padding: 0 12px;
+    }
+
+    .cs-mb-35 {
+        margin-bottom: 25px;
+    }
+
+    .grouped-field > .form-group:not(:last-of-type) {
+        margin-right: 0;
+        margin-bottom: 10px;
+    }
+
+    .radio-field .control-label {
+        font-size: 15px;
+    }
+
+    .grouped-field .default-field:not(:last-of-type) {
+        margin-right: 30px;
+    }
+
+    .sales-point-wrapper > div > .sales-point:not(:first-of-type) {
+        margin-right: 30px;
+    }
+
+    .grouped-field > .form-group {
+        width: 100%;
+    }
+
+    .default-tooltip + .tooltip > .tooltip-inner {
+        min-width: 175px;
+        padding: 15px;
+        font-size: 12px;
+    }
+
+    .cs-mb-55 {
+        margin-bottom: 25px;
+    }
+
+    .content-block .white-box.cs-ptb-200 {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .cs-ptb-200 {
+        padding-top: 60px;
+        padding-bottom: 60px;
+    }
+
+    .under-constr.profile-block .white-box {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .uc-pic-wp {
+        width: 175px;
+        height: 175px;
+        padding: 15px;
+        margin-bottom: 25px;
+    }
+
+    .uc-pic img {
+        max-height: 50px;
+    }
+
+    .wide-filter .default-field:not(:last-child) {
+        margin-right: 0;
+    }
+
+    .wide-filter {
+        margin-bottom: 10px;
+        justify-content: flex-end;
+    }
+
+    .wide-filter .default-field {
+        width: 100%;
+    }
+
+    .profile-block-mtb .white-box {
+        padding-top: 20px;
+        padding-bottom: 20px;
+    }
+
+    .form-actions {
+        margin-top: 20px;
+    }
+
+    .default-field .form-group {
+        margin-bottom: 15px;
+    }
+
+    .error-summary {
+        padding: 10px 15px;
+    }
+}
+
+@media screen and (max-width: 479px) {
+    .with-postfix .default-field {
+        max-width: 100%;
+    }
+
+    .with-postfix .field-postfix {
+        padding-top: 0;
+        padding-left: 0;
+        display: block;
+        text-align: center;
+        width: 100%;
+        font-weight: 600;
+        line-height: 40px;
+    }
+}
+
+@media screen and (max-width: 379px) {
+    .default-button {
+        width: 100%;
+    }
+
+    .show-field {
+        font-size: 14px;
+    }
+
+    .content-block .white-box.cs-ptb-200 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .cs-ptb-200 {
+        padding-top: 40px;
+        padding-bottom: 40px;
+    }
+
+    .form-actions {
+        /*margin-top: 20px;*/
+    }
+
+    .form-actions > .default-button:not(:last-child) {
+        /*margin-right: 0;*/
+        /*margin-bottom: 10px;*/
+    }
+}
+
+/*table styles*/
+
+@media screen and (max-width: 1536px) {
+    .default-button.wide {
+        min-width: 1px;
+    }
+
+    .fashionable-controls button:not(:last-of-type) {
+        margin-right: 15px;
+    }
+
+    .form-actions .default-button:not(:last-of-type) {
+        margin-bottom: 10px;
+    }
+}
+
+@media screen and (max-width: 991px) {
+    .content-outer {
+        padding: 20px;
+    }
+
+    .default-field.bordered-field .form-control[type=search] {
+        background: #ffffff;
+        padding-left: 20px;
+        min-width: 235px;
+    }
+
+    /*.fashionable-table .form-control.has-search {*/
+    /*background: #ffffff;*/
+    /*padding-left: 20px;*/
+    /*min-width: 235px;*/
+    /*}*/
+    /*.fashionable-table .form-control {*/
+    /*padding: 0 20px;*/
+    /*height: 55px;*/
+    /*}*/
+    /*.fashionable-table .select2-container--default .select2-selection--single .select2-selection__arrow {*/
+    /*width: 40px;*/
+    /*}*/
+    /*.fashionable-table .select2-container--default .select2-selection--single .select2-selection__rendered {*/
+    /*height: 49px;*/
+    /*line-height: 49px;*/
+    /*}*/
+    /*.fashionable-table .select2-container--default .select2-selection--single {*/
+    /*height: 55px;*/
+    /*padding: 0 32px 0 20px;*/
+    /*}*/
+    /*.fashionable-table .sort-label {*/
+    /*padding-left: 20px;*/
+    /*padding-right: 16px;*/
+    /*}*/
+}
+
+@media screen and (max-width: 379px) {
+    .fashionable-controls button:not(:last-of-type) {
+        margin-right: 0;
+        margin-bottom: 15px;
+    }
+}

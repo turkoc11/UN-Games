@@ -1,0 +1,34 @@
+.select2-container--default .select2-selection--single {
+    background-color: #fff;
+    border: 1px solid #e4e7ea;
+    border-radius: 0;
+    color: #565656;
+    height: 38px;
+    max-width: 100%;
+    padding: 7px 30px 7px 12px;
+    transition: all 300ms linear 0s;
+    -webkit-box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    box-shadow: inset 0 1px 1px rgba(0, 0, 0, .075);
+    -webkit-transition: border-color ease-in-out .15s, -webkit-box-shadow ease-in-out .15s;
+    -o-transition: border-color ease-in-out .15s, box-shadow ease-in-out .15s;
+}
+
+.select2-container--default .select2-selection--single .select2-selection__arrow {
+    height: 100%;
+    top: 0;
+    right: 0;
+    width: 30px;
+}
+
+.select2-dropdown {
+    border: 1px solid #e4e7ea;
+}
+
+.profile-file .help-block {
+    position: absolute;
+    bottom: -65px;
+    left: 0;
+    right: 0;
+    max-width: 250px;
+    margin: auto;
+}

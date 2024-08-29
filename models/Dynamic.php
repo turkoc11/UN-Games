@@ -1,0 +1,140 @@
+<?php
+
+namespace app\models;
+
+use app\components\FilterBehavior;
+use app\components\MultilingualBehavior;
+use app\components\MultilingualQuery;
+use app\components\TimeZoneBehavior;
+use app\components\UserBehavior;
+use Yii;
+use yii\behaviors\TimestampBehavior;
+use yii\db\ActiveQuery;
+
+/**
+ * This is the model class for table "dynamic".
+ *
+ * @property int $id
+ * @property int $columns
+ * @property string $title Page Title
+ * @property string $sub_title Page Sub Title
+ * @property string $url Page Link
+ * @property string $image Page Image
+ * @property string $short_description Page Preview Description
+ * @property string $description Page Description
+ * @property int $status Visible Status
+ * @property string $template Page Template
+ * @property string $meta_title Meta Title
+ * @property string $meta_description Meta Description
+ * @property string $meta_keyword Meta Keyword
+ * @property integer $created_at
+ * @property integer $updated_at
+ * @property integer $created_by
+ * @property integer $updated_by
+ */
+class Dynamic extends \yii\db\ActiveRecord
+{
+
+    /**
+     * {@inheritdoc}
+     */
+    public static function tableName()
+    {
+        return 'dynamic';
+    }
+
+    public function behaviors()
+    {
+        return [
+            //FilterBehavior::class,
+            TimestampBehavior::class,
+            UserBehavior::class,
+            'ml' => [
+                'class'           => MultilingualBehavior::class,
+                'languages'       => Lang::getBehaviorsList(),
+                //'languageField' => 'language',
+                //'localizedPrefix' => '',
+                //'requireTranslations' => false',
+                //'dynamicLangClass' => true',
+                'defaultLanguage' => Lang::getCurrent() ? Lang::getCurrent()->local : 'EN',
+                'langForeignKey'  => 'original_id',
+                'tableName'       => "{{%dynamic_lang}}",
+                'attributes'      => [
+                    'title',
+                    'sub_title',
+                    'short_description',
+                    'description',
+                    'meta_title',
+                    'meta_description',
+                    'meta_keyword'
+                ],
+            ],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function rules()
+    {
+        return [
+            [['short_description', 'description', 'slogan'], 'string'],
+            [['status', 'created_at', 'updated_at', 'created_by', 'updated_by'], 'default', 'value' => 0],
+            [['status', 'in_menu', 'created_at', 'updated_at', 'created_by', 'updated_by','columns', 'position_in_menu'], 'integer'],
+            [['title', 'sub_title', 'url', 'template', 'meta_title'], 'string', 'max' => 255],
+            [['image', 'meta_keyword','content_image'], 'string', 'max' => 512],
+            [['meta_description'], 'string', 'max' => 1000],
+        ];
+    }
+
+    /**
+     * {@inheritdoc}
+     */
+    public function attributeLabels()
+    {
+        return [
+            'id'                => Yii::t('app_model', 'ID'),
+            'title'             => Yii::t('app_model', 'Page Title'),
+            'sub_title'         => Yii::t('app_model', 'Page Sub Title'),
+            'url'               => Yii::t('app_model', 'Page Link'),
+            'image'             => Yii::t('app_model', 'Page Image'),
+            'short_description' => Yii::t('app_model', 'Page Preview Description'),
+            'description'       => Yii::t('app_model', 'Page text'),
+            'status'            => Yii::t('app_model', 'Visible Status'),
+            'in_menu'           => Yii::t('app_model', 'Show in menu'),
+            'template'          => Yii::t('app_model', 'Page Template'),
+            'meta_title'        => Yii::t('app_model', 'Meta Title'),
+            'meta_description'  => Yii::t('app_model', 'Meta Description'),
+            'meta_keyword'      => Yii::t('app_model', 'Meta Keyword'),
+            'slogan'      => Yii::t('app_model', 'Slogan'),
+
+            'created_at'        => Yii::t('app_model', "Created"),
+            'updated_at'        => Yii::t('app_model', "Updated"),
+            'created_by'        => Yii::t('app_model', "Created By"),
+            'updated_by'        => Yii::t('app_model', "Updated By"),
+            'position_in_menu'  => Yii::t('app_model', "Position in menu"),
+            'columns' => Yii::t('app_model', 'Columns'),
+            'content_image' => Yii::t('app_model', 'Right column image'),
+        ];
+    }
+
+    /**
+     * @inheritdoc
+     * @return ActiveQuery|MultilingualQuery the active query used by this AR class.
+     */
+    public static function find()
+    {
+        $q = new MultilingualQuery(get_called_class());
+        $q->localized();
+
+        return $q;
+    }
+    public function beforeSave($insert)
+    {
+        if(!$this->url){
+            $this->url = Yii::$app->controller->translit($this->title);
+        }
+        return parent::beforeSave($insert); // TODO: Change the autogenerated stub
+    }
+
+}

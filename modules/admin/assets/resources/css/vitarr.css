@@ -1,0 +1,339 @@
+.select2-container .select2-choice {
+    height: inherit !important;
+}
+
+.select2-container.select2-container-disabled .select2-choice .select2-arrow {
+    height: 0;
+}
+
+.select2-container.select2-container-disabled {
+    background-color: #f4f4f4;
+    cursor: not-allowed;
+}
+
+.select2-container.select2-container-disabled .select2-chosen {
+    background-color: #f4f4f4;
+    cursor: not-allowed;
+}
+
+.tab-pane.fade {
+    display: none;
+}
+
+.tab-pane.fade.in {
+    display: block;
+}
+
+.form_tab {
+    margin: 30px;
+}
+
+.form_error_summary {
+    margin-top: 25px;
+}
+
+.kv-file-remove {
+    display: none;
+}
+
+.file-preview-thumbnails {
+    width: 100%;
+}
+
+.file-drag-handle {
+    display: none;
+}
+
+.file-preview-frame {
+    width: 97%;
+}
+
+.file-preview-frame .kv-file-content {
+    width: auto !important;
+}
+
+.custom_badge {
+    padding: 1px 3px;
+}
+
+.checkboxes {
+    height: auto;
+}
+
+.checkboxes label {
+    padding: 1px 5px;
+}
+
+/*---------------------- tree styles -----------------------*/
+
+ul.tree, ul.tree * {
+    list-style-type: none;
+    margin: 0;
+    padding: 0 0 5px 0;
+}
+
+ul.tree img.arrow {
+    padding: 2px 0 0 0;
+    border: 0;
+    width: 20px;
+}
+
+ul.tree li {
+    padding: 4px 0 0 0;
+}
+
+ul.tree li ul {
+    padding: 0 0 0 20px;
+    margin: 0;
+}
+
+ul.tree label {
+    cursor: pointer;
+    font-weight: bold;
+    padding: 2px 0;
+}
+
+ul.tree label.hover {
+    color: red;
+}
+
+.check_tree_container p {
+    margin: 5px 15px;
+}
+
+.check_tree_container ul {
+    /*margin-top: 5px;*/
+    margin-bottom: 30px;
+}
+
+ul.tree li .arrow {
+    width: 20px;
+    height: 20px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    float: left;
+    background: transparent no-repeat 0 4px;
+}
+
+ul.tree li .checkbox {
+    width: 20px;
+    height: 18px;
+    padding: 0;
+    margin: 0;
+    cursor: pointer;
+    float: left;
+}
+
+ul.tree label {
+    user-select: none;
+}
+
+/* ------------------ beauty ------------------*/
+
+ul.tree li .arrow {
+    top: 1px;
+    width: 20px;
+    height: 20px;
+    position: relative;
+    background: #ffffff;
+    cursor: auto;
+}
+
+ul.tree li .arrow.collapsed, ul.tree li .arrow.expanded {
+    cursor: pointer;
+}
+
+ul.tree li .arrow.collapsed:before, ul.tree li .arrow.expanded:before {
+    font-family: FontAwesome, sans-serif;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #f33155;
+    font-size: 12px;
+
+}
+
+ul.tree li .arrow.collapsed:before {
+    content: "\f054";
+}
+
+ul.tree li .arrow.expanded:before {
+    content: "\f078";
+}
+
+ul.tree label.hover {
+    color: #f33155;
+}
+
+ul.tree li .half_checked:before {
+    content: "\f068";
+    font-family: FontAwesome, sans-serif;
+    position: absolute;
+    left: 1px;
+    right: 0;
+    bottom: 0;
+    top: 1px;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #41b3f9;
+    font-size: 11px;
+}
+
+ul.tree label {
+    height: 20px;
+    line-height: 24px;
+    display: inline-block;
+    font-weight: 500;
+    font-size: 14px;
+    font-family: 'Rubik', sans-serif;
+    color: #313131;
+    margin-left: 15px;
+    opacity: 0.6;
+    padding: 0;
+}
+
+ul.tree li .checkbox {
+    top: 3px;
+    width: 16px;
+    height: 16px;
+    background: #ffffff;
+    position: relative;
+    margin-left: 6px;
+    border: 2px solid #41b3f9;
+    border-radius: 2px;
+}
+
+ul.tree li ul {
+    padding: 0 0 0 30px;
+}
+
+ul.tree li .checkbox:after {
+    content: '';
+    background: #41b3f9;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    width: 0;
+    height: 0;
+    border-radius: 100%;
+    transition: 0.15s ease-in-out;
+}
+
+ul.tree li .checkbox.checked:after {
+    width: 100%;
+    height: 100%;
+    border-radius: 0;
+}
+
+ul.tree li .checkbox.checked:before {
+    content: "\f00c";
+    font-family: FontAwesome, sans-serif;
+    position: absolute;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 0;
+    margin: auto;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: #ffffff;
+    font-size: 12px;
+    z-index: 5;
+    opacity: 0;
+    transition: 0.3s ease-in-out;
+}
+
+ul.tree li .checkbox.checked:before {
+    opacity: 1;
+}
+
+ul.tree {
+    min-height: 225px;
+    border: 1px solid rgba(120, 130, 140, 0.15);
+    padding: 0 20px 20px;
+}
+
+ul.tree li {
+    padding: 10px 0 0 0;
+}
+
+/* ------------------ beauty end ------------------*/
+
+/*---------------------- tree styles end -----------------------*/
+
+.additional_row {
+    border: 1px solid rgba(120, 130, 140, 0.15);
+    margin-top: 5px;
+    padding-top: 28px;
+    min-height: 225px;
+}
+
+.field-authitem-name {
+    padding-top: 6px;
+}
+
+
+.select2-container-multi .select2-choices .select2-search-choice {
+    padding: 7px 7px 7px 18px;
+    margin: 5px 0 5px 5px;
+}
+
+.select2-container-multi .select2-search-choice-close {
+    left: 2px;
+    top: 0px;
+}
+
+.dw-switch-box {
+    padding: 5px 1px !important;
+    text-align: center;
+}
+
+.dw-switch-box h4 {
+    font-size: 16px;
+}
+
+.form-preload {
+    background: rgba(255, 255, 255, 0.5) url(../images/preloader.gif) no-repeat scroll center center;
+    display: none;
+    height: 100%;
+    left: 0;
+    position: absolute;
+    top: 0;
+    width: 100%;
+    z-index: 5;
+}
+
+.profile-data-outer {
+    -ms-flex: 0 0 25%;
+    flex: 0 0 25%;
+    max-width: 25%;
+}
+
+.select2-results__option {
+    min-height: 30px;
+}
+
+.select2-container .select2-selection--multiple {
+    min-height: 37px;
+}
+
+.select2-container--default .select2-selection--multiple .select2-selection__choice {
+    margin-top: 7px;
+}
+
+.select2-container .select2-search--inline .select2-search__field {
+    margin-top: 8px;
+}
