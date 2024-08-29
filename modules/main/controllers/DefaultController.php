@@ -146,8 +146,13 @@ class DefaultController extends Controller
             ->multilingual()
             ->all();
 
-        $transaction = Transactions::find()->where(['email' => Yii::$app->user->identity->email])->all();
-        $user = Users::getUserById(Yii::$app->user->identity->id);
+	if(\Yii::$app->user->isGuest) {
+            $transaction = [];
+            $user = [];
+        } else {
+            $transaction = Transactions::find()->where(['email' => Yii::$app->user->identity->email])->all();
+            $user = Users::getUserById(Yii::$app->user->identity->id);
+        }
 
         $sections = Sections::find()
             ->where('status = :status', [':status' => 1])

@@ -2,8 +2,8 @@
 
 return [
     'class' => 'yii\db\Connection',
-    'dsn' => 'pgsql:host=localhost;port=54314;dbname=game',
-    'username'=>'root',
+    'dsn' => 'pgsql:host=localhost;port=5432;dbname=game',
+    'username'=>'game',
     'password'=>'NHY67ujm',
     'charset'=>'UTF8',
 //    'enableLogging' => true, // включить логирование

@@ -40,7 +40,7 @@ $paymentIntent = $model->paymentIntents->create(
         const {error} = await stripe.confirmPayment({
             elements,
             confirmParams:{
-                return_url: 'http://gamesite.local/payment/create'
+                return_url: 'http://ungames.company/payment/create'
             }
         })
 

@@ -59,7 +59,7 @@ public function actionCreate()
         }
     }
     Transactions::transactionSave($paymentIntent);
-    $this->redirect('http://gamesite.local');
+    $this->redirect('http://ungames.company');
 }
 
     public function actionForm()

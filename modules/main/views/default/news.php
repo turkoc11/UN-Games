@@ -1,9 +1,9 @@
-<?
+<?php
 use yii\helpers\Url;
 
 $longMews = $this->params['headerContent']['newsLong'];
 $shortNews = $this->params['headerContent']['newsShort'];
-//echo '<pre>'; var_dump($shortNews); die;
+
 ?>
 <main class="main">
     <div class="services-head-container">
