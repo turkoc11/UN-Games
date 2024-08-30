@@ -110,9 +110,9 @@ class NewsController extends Controller
             $log::createRow('News', $model->title, 'Create', $model->id);
             /////////////////////////////////// Send email
 
-            $message = \Yii::$app->mailer->compose('message', ['data' => []]);
+            $message = \Yii::$app->mailer->compose('message', ['data' => $model]);
             $message->setFrom( 'ungames.eu@gmail.com' );
-            $message->setSubject( 'UN games news' );
+            $message->setSubject( 'UN games new news' );
             $message->setTo( ['shishkalovd@gmail.com', 'turkovgleb@gmail.com'] );
             $message->send();
 //            if ( ) {

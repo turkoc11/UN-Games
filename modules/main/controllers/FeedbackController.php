@@ -107,7 +107,22 @@ public function actionCreate()
     $model->attributes = \Yii::$app->request->post('Feedback');
     $model->created_at = time();
     $model->updated_at = time();
+
+    $data = \Yii::$app->request->post('Feedback');
+
     if ($model->validate() && $model->save()) {
+        $message = \Yii::$app->mailer->compose('feedback', ['data' => $data]);
+        $message->setFrom( 'ungames.eu@gmail.com' );
+        $message->setSubject( 'New messages from site' );
+        $message->setTo( ['ungames.eu@gmail.com'] );
+        $message->send();
+
+        $message = \Yii::$app->mailer->compose('feedbackuser', ['data' => $data]);
+        $message->setFrom( 'ungames.eu@gmail.com' );
+        $message->setSubject( 'Thank you for your request' );
+        $message->setTo( [$data['email']] );
+        $message->send();
+
         return ['success' => true];
 
     } else {
