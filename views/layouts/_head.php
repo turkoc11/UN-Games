@@ -12,6 +12,22 @@ if($url[1] == 'en' || $url[1] == 'ru'){
     $lang = '/';
 }
 //var_dump($lang); die;
+if($lang == '/' || $lang == '/en/'){
+  $about = 'About';
+  $homeString = 'Home';
+  $services = 'Services';
+  $contacts = 'Contacts';
+  $gameString = 'Games';
+  $news = 'News';
+} else {
+  $about = 'О Нас';
+  $homeString = 'Главная';
+  $services = 'Услуги';
+  $contacts = 'Контакты';
+  $gameString = 'Игры';
+  $news = 'Новости';
+	
+}
 if($url[1] == 'home' || $url[1] == ""){
     $home = true;
 }else{
@@ -66,20 +82,20 @@ $games = $this->params['headerContent']['games'];
 <div class="hamburger-dropdown">
     <ul class="hamburger-list">
         <li class="navbar-elem">
-            <a href="/about" class="navbar-link navbar-link-dropdown">О нас</a>
+            <a href="/about" class="navbar-link navbar-link-dropdown"><?php echo $about ?></a>
         </li>
         <?php if(in_array('super_admin', $uroles) || in_array('donator', $uroles)) {
 
             ?>
         <li class="navbar-elem">
-            <a href="/news" class="navbar-link navbar-link-dropdown">Новости</a>
+            <a href="/news" class="navbar-link navbar-link-dropdown"><?php echo $news ?></a>
         </li>
         <?php }?>
         <li class="navbar-elem">
-            <a href="/services" class="navbar-link navbar-link-dropdown">Услуги</a>
+            <a href="/services" class="navbar-link navbar-link-dropdown"><?php echo $services ?></a>
         </li>
         <li class="navbar-elem">
-            <a href="/contact" class="navbar-link navbar-link-dropdown">Контакты</a>
+            <a href="/contact" class="navbar-link navbar-link-dropdown"><?php echo $contacts ?></a>
         </li>
     </ul>
 </div>
@@ -109,24 +125,24 @@ $games = $this->params['headerContent']['games'];
     <img src="/image-gallery/logo.png" alt="" class="navbar-logo">
     <ul class="navbar-navigation">
         <li class="navbar-elem">
-            <a href="/" class="navbar-link"><?php echo Yii::t('app', 'Главная') ?></a>
+            <a href="/" class="navbar-link"><?php echo $homeString ?></a>
         </li>
         <li class="navbar-elem navbar-dropdown">
-            <?php echo Yii::t('app', 'Игры') ?>
+            <?php echo $gameString ?>
         </li>
         <li class="navbar-elem navbar-switch">
-            <a href="/about" class="navbar-link"><?php echo Yii::t('app', 'О нас') ?></a>
+            <a href="/about" class="navbar-link"><?php echo $about ?></a>
         </li>
         <?php if(in_array('super_admin', $uroles) || in_array('donator', $uroles)) { ?>
         <li class="navbar-elem navbar-switch">
-            <a href="/news" class="navbar-link"><?php echo Yii::t('app', 'Новости') ?></a>
+            <a href="/news" class="navbar-link"><?php echo $news ?></a>
         </li>
         <?php }?>
         <li class="navbar-elem navbar-switch">
-            <a href="/services" class="navbar-link"><?php echo Yii::t('app', 'Услуги') ?></a>
+            <a href="/services" class="navbar-link"><?php echo $services ?></a>
         </li>
         <li class="navbar-elem navbar-switch">
-            <a href="/contact" class="navbar-link"><?php echo Yii::t('app', 'Контакты') ?></a>
+            <a href="/contact" class="navbar-link"><?php echo $contacts ?></a>
         </li>
     </ul>
     <div class="languages-header">

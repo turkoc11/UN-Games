@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Log;
+use app\models\Subscribe;
 use Yii;
 use app\modules\admin\models\Values;
 use app\modules\admin\models\ValuesSearch;
@@ -103,11 +104,11 @@ class ValuesController extends Controller
             $model->save();
             $log = new Log();
             $log::createRow('Games', $model->title, 'Create', $model->id);
-
-            $message = \Yii::$app->mailer->compose('message', ['data' => $model]);
+            $subscribes = Subscribe::find()->select('email')->asArray()->column();
+            $message = \Yii::$app->mailer->compose('message', ['data' => $model, 'url' => 'post']);
             $message->setFrom( 'ungames.eu@gmail.com' );
             $message->setSubject( 'New games' );
-            $message->setTo( ['shishkalovd@gmail.com'] );
+            $message->setTo( $subscribes );
             $message->send();
             return $this->redirect(['index']);
         } else {

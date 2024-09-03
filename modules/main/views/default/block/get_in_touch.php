@@ -11,7 +11,7 @@ use yii\web\JsExpression;
 ?>
 <?php
 $settings = $this->params['headerContent']['settings'];
-
+$first_name = 'Имя';
 ?>
 
 <section class="section section-get-in-touch">
@@ -33,17 +33,20 @@ $settings = $this->params['headerContent']['settings'];
                 ]); ?>
 
                 <div class="form-field">
-                    <?= $form->field($model, 'first_name', [ 'template' => '<label for="first-name"  data-wow-duration="1s" data-wow-delay="0.1s">First name *</label> {hint}{error} 
+		<?php echo Yii::t('app', 'First name *')?> 
+                    <?= $form->field($model, 'first_name', [ 'template' => '<label for="first-name"  data-wow-duration="1s" data-wow-delay="0.1s">   </label> {hint}{error} 
                                                  <input id="first-name" type="text" name="Feedback[first_name]" aria-required="true"  data-constraints="@Required @JustLetters"/>
                                                 '])
-                        ->textInput();
+                        ->textInput()->label(Yii::t('app', 'First name *'));
                     ?>
 
                     <span class="form-field__line"></span>
                     <span class='error-first_name form-span' style="display:none"></span>
-                    </div>
+                    
+		   </div>
                     <div class="form-field">
-                        <?= $form->field($model, 'last_name', [ 'template' => '<label for="last-name"  data-wow-duration="1s" data-wow-delay="0.1s">Last name *</label> {hint}{error}
+			<?php echo Yii::t('app', 'Last name *')?> 
+                        <?= $form->field($model, 'last_name', [ 'template' => '<label for="last-name"  data-wow-duration="1s" data-wow-delay="0.1s"></label> {hint}{error}
                                                  <input type="text" name="Feedback[last_name]" id="last-name" aria-required="true"  data-constraints="@Required @JustLetters"/>
                                                  '])
                             ->textInput();
@@ -53,18 +56,20 @@ $settings = $this->params['headerContent']['settings'];
                         <span class='error-last_name form-span' style="display:none"></span>
                     </div>
                     <div class="form-field form-field-big">
-                        <?= $form->field($model, 'email', [ 'template' => '<label for="email"  data-wow-duration="1s" data-wow-delay="0.1s">Email *</label> {hint}{error}
+			<?php echo Yii::t('app', 'Email *')?> 
+                        <?= $form->field($model, 'email', [ 'template' => '<label for="email"  data-wow-duration="1s" data-wow-delay="0.1s"></label> {hint}{error}
                                                  <input type="text" id="email" name="Feedback[email]" aria-required="true"  data-constraints="@Required @JustLetters"/>
                                                  '])
                             ->textInput();
                         ?>
-<!--                        <label for="email">Email *</label>-->
+<!--                        <label for="email"></label>-->
 <!--                        <input id="email" name="email" required type="text"/>-->
                         <span class="form-field__line"></span>
                         <span class='error-email form-span' style="display:none"></span>
                     </div>
                     <div class="form-field form-field-big">
-                        <?= $form->field($model, 'description', [ 'template' => '<label for="interested" data-wow-duration="1s" data-wow-delay="0.1s">I\'m interested in *</label> {hint}{error}
+			<?php echo Yii::t('app', 'I\'m interested in *')?> 
+                        <?= $form->field($model, 'description', [ 'template' => '<label for="interested" data-wow-duration="1s" data-wow-delay="0.1s"></label> {hint}{error}
                                                  <textarea id="interested" name="Feedback[description]"  aria-required="true"
                                                  data-constraints="@Required @Length(min=10,max=160)"></textarea>
                                                  '])
@@ -85,8 +90,8 @@ $settings = $this->params['headerContent']['settings'];
                             />
                             <label class="checkbox-label" for="accept">
                     <span
-                    >I consent to the use of my data in accordance with
-                      <a href="/privacy-policy">Privacy Policy</a>.</span
+                    ><?php echo Yii::t('app','I consent to the use of my data in accordance with')?>
+                      <a href="/privacy-policy"><?php echo Yii::t('app','Privacy Policy')?></a>.</span
                     ></label>
                         </div>
                     </div>

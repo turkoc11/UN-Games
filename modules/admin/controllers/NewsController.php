@@ -3,6 +3,7 @@
 namespace app\modules\admin\controllers;
 
 use app\models\Log;
+use app\models\Subscribe;
 use app\modules\admin\models\News;
 use app\modules\admin\models\NewsSearch;
 use Yii;
@@ -109,11 +110,11 @@ class NewsController extends Controller
             $log = new Log();
             $log::createRow('News', $model->title, 'Create', $model->id);
             /////////////////////////////////// Send email
-
-            $message = \Yii::$app->mailer->compose('message', ['data' => $model]);
+            $subscribes = Subscribe::find()->select('email')->asArray()->column();
+            $message = \Yii::$app->mailer->compose('message', ['data' => $model, 'url' => 'news']);
             $message->setFrom( 'ungames.eu@gmail.com' );
             $message->setSubject( 'UN games new news' );
-            $message->setTo( ['shishkalovd@gmail.com', 'turkovgleb@gmail.com'] );
+            $message->setTo( $subscribes );
             $message->send();
 //            if ( ) {
 //

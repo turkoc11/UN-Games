@@ -65,7 +65,7 @@ $config = [
         ],
         'mailer' => [
             'class' => 'yii\sendinblue\transactional\Mailer',
-            'apikey' => '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',
+            'apikey' => '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',
         ],
         'stripe' => [
             'class' => 'ruskid\stripe\Stripe',

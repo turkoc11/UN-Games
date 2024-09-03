@@ -87,7 +87,7 @@
             <div class="services-content-small-text">
                 <?php echo Yii::t('app', 'Мы специализируемся на создании уникальных игровых проектов, начиная от концепта и заканчивая финальным релизом. Наши игры привлекают внимание благодаря высокому качеству графики, захватывающему геймплею и глубокой проработке сюжета. Мы разрабатываем игры для различных платформ, включая ПК, консоли и мобильные устройства.')?>
                 </div>
-            <a href="/contact" class="services-content-button">Больше</a>
+            <a href="/contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
         </div>
     </div>
     <div class="services-content-container">

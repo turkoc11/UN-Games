@@ -6,6 +6,7 @@ namespace app\modules\user\models;
 use app\modules\user\models\Users;
 use app\modules\user\services\RbacService;
 use app\modules\user\models\SmsCode;
+use app\models\UserRegister;
 // use app\modules\users\models\UserStatus;
 use Yii;
 use yii\base\Model;
@@ -137,15 +138,15 @@ class RegistrationForm extends Model
 
         try {
 //            var_dump($this->password); die;
-            $user = new Users();
+            $user = new UserRegister();
             $user->email = $this->email;
-            $user->nick_name = $this->nick_name;
+//            $user->nick_name = $this->nick_name;
             $user->password_hash = \Yii::$app->security->generatePasswordHash($this->password);
-            $user->phone = $this->phone;
+//            $user->phone = $this->phone;
             $user->status = 1; // ToDo another status
             $user->level = 1;
-            $user->save();
-            if (!$user->save()) return false;
+            $user->save(false);
+            if (!$user->save(false)) return false;
             (new RbacService())->assign($user->id, 'user');
             $transaction->commit();
 

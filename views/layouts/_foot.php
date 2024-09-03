@@ -11,6 +11,34 @@ $contacts = $this->params['headerContent']['contacts'];
     $uroles = [];
 
 }
+
+$url = explode('/',Yii::$app->request->getUrl());
+//var_dump($url); die;
+$serviceLink = null;
+$lang = null;
+if($url[1] == 'en' || $url[1] == 'ru'){
+    $lang = '/'.$url[1].'/';
+}else{
+    $lang = '/';
+}
+//var_dump($lang); die;
+if($lang == '/' || $lang == '/en/'){
+  $about = 'About';
+  $home = 'Home';
+  $services = 'Services';
+  $contacts = 'Contacts';
+  $gameString = 'Games';
+  $news = 'News';
+} else {
+  $about = 'О Нас';
+  $home = 'Главная';
+  $services = 'Услуги';
+  $contacts = 'Контакты';
+  $gameString = 'Игры';
+  $news = 'Новости';
+
+}
+
 ?>
 <div class="newsletter-container">
     <div class="newsletter-text-container">
@@ -38,17 +66,17 @@ $contacts = $this->params['headerContent']['contacts'];
             <img src="/image-gallery/logo.png" alt="Сюда лого вставить" class="footer-logo">
         </div>
         <div class="top-part-pages">
-            <a href="/" class="pages-big-text"><?php echo Yii::t('app', 'Главная')?></a>
+            <a href="/" class="pages-big-text"><?php echo $home ?></a>
             <div class="pages-footer-section">
-                <a href="/about" class="pages-footer"><?php echo Yii::t('app', 'О нас')?></a>
-                <a href="/services" class="pages-footer">Услуги</a>
+                <a href="/about" class="pages-footer"><?php echo $about ?></a>
+                <a href="/services" class="pages-footer"><?php echo $services ?></a>
                 <?php if(in_array('super_admin', $uroles) || in_array('donator', $uroles)) { ?>
-                <a href="/news" class="pages-footer"><?php echo Yii::t('app', 'Новости')?></a>
+                <a href="/news" class="pages-footer"><?php echo $about ?></a>
                 <?php }?>
             </div>
         </div>
         <div class="top-part-contact">
-            <a href="/contacts" class="contact-us-link"><?php echo Yii::t('app', 'Контакты')?></a>
+            <a href="/contacts" class="contact-us-link"><?php echo $contacts ?></a>
             <div class="footer-contact-text">test@gmail.com</div>
         </div>
         <div class="top-part-socials socials-desktop">

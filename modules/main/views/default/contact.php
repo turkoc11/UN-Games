@@ -17,9 +17,9 @@ use yii\web\JsExpression;
 
 ?>
 <main class="main main-contact">
-    <h1 class="contact-us-head-text">Свяжитесь с нами!</h1>
+    <h1 class="contact-us-head-text"><?php echo Yii::t('app', 'Свяжитесь с нами!')?></h1>
     <div class="contact-us-small-text">
-        Мы будем рады любому отклику, а так-же всегда открыты для набора новых сотрудников!
+        <?php echo Yii::t('app', 'Мы будем рады любому отклику, а так-же всегда открыты для набора новых сотрудников!')?>
     </div>
     <img src="/image-gallery/map.png" alt="" class="map-image">
 

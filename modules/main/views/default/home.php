@@ -80,7 +80,7 @@ use yii\helpers\Html;
                         <img src="/image-gallery/Group.svg" alt="">
                     </div>
                     <div class="job-section-elem-text">
-                        Мобильные
+                       <?php echo Yii::t('app', 'Мобильные')?> 
                     </div>
 
                     <svg class="job-section-arrow" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -101,7 +101,7 @@ use yii\helpers\Html;
                         <img src="/image-gallery/Vector.svg" alt="">
                     </div>
                     <div class="job-section-elem-text">
-                        VR
+                        <?php echo Yii::t('app', 'VR')?>
                     </div>
 
                     <svg class="job-section-arrow" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -122,7 +122,7 @@ use yii\helpers\Html;
                         <img src="/image-gallery/Shape.svg" alt="">
                     </div>
                     <div class="job-section-elem-text">
-                        ПК
+                        <?php echo Yii::t('app', 'ПК')?>
                     </div>
 
                     <svg class="job-section-arrow" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
@@ -143,7 +143,7 @@ use yii\helpers\Html;
                         <img src="/image-gallery/ps4.svg" alt="">
                     </div>
                     <div class="job-section-elem-text">
-                        Консоли
+                        <?php echo Yii::t('app', 'Консоли')?>
                     </div>
 
                     <svg class="job-section-arrow" width="21" height="21" viewBox="0 0 21 21" fill="none" xmlns="http://www.w3.org/2000/svg">
