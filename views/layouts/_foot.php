@@ -71,13 +71,13 @@ if($lang == '/' || $lang == '/en/'){
                 <a href="/about" class="pages-footer"><?php echo $about ?></a>
                 <a href="/services" class="pages-footer"><?php echo $services ?></a>
                 <?php if(in_array('super_admin', $uroles) || in_array('donator', $uroles)) { ?>
-                <a href="/news" class="pages-footer"><?php echo $about ?></a>
+                <a href="/news" class="pages-footer"><?php echo $news ?></a>
                 <?php }?>
             </div>
         </div>
         <div class="top-part-contact">
             <a href="/contacts" class="contact-us-link"><?php echo $contacts ?></a>
-            <div class="footer-contact-text">test@gmail.com</div>
+            <a href="mailto: ungames.eu@gmail.com" class="footer-contact-text">ungames.eu@gmail.com</a>
         </div>
         <div class="top-part-socials socials-desktop">
             <a href="" class="socials">
@@ -99,10 +99,10 @@ if($lang == '/' || $lang == '/en/'){
             <a href="" class="socials">
                 <img src="/image-gallery/facebook.png" alt="" class="socials-image">
             </a>
-            <a href="" class="socials">
+            <a href="https://www.instagram.com/ungames.company/" class="socials">
                 <img src="/image-gallery/instagram.png" alt="" class="socials-image">
             </a>
-            <a href="" class="socials">
+            <a href="X.com/UNgames" class="socials">
                 <img src="/image-gallery/x-logo.webp" alt="" class="socials-image">
             </a>
             <a href="" class="socials">
@@ -112,7 +112,7 @@ if($lang == '/' || $lang == '/en/'){
     </div>
     <div class="footer-bottom-part">
         <div class="footer-bottom-text">
-            Copyright ® 2024 Lorem All rights Rcerved
+            Copyright ® 2024 UNgames all rights reserved
         </div>
     </div>
 </footer>

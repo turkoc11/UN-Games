@@ -28,10 +28,10 @@ use ruskid\stripe\StripeCheckoutCustom;
     </div>
     <?php if (!Yii::$app->user->isGuest) {?>
     <div class="stripe-payment">
-        <label for="tentacles"><?php echo Yii::t('app', 'Введите сумму доната')?></label>
-        <input type="number" id="donate" name="tentacles"  />
+        <label for="tentacles" class="stripe-label"><?php echo Yii::t('app', 'Введите сумму доната')?></label>
+        <input type="number" id="donate" class="stripe-donation-input" name="tentacles"  />
         <span id="donat-payment"></span>
-        <a href="/payment/form" target="_blank" class="stripe-payment"> <?php echo Yii::t('app', 'Оплатить')?></a>
+        <a href="/payment/form" target="_blank" class="stripe-payment stripe-payment-button"> <?php echo Yii::t('app', 'Оплатить')?></a>
 
     </div>
     <?php }?>

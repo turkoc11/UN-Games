@@ -31,18 +31,15 @@ use yii\helpers\Html;
             <div class="game-screen-text"><?php echo Yii::t('app', 'Наши игры')?></div>
         </div>
         <div class="game-screen-gallery">
-            <a href="/" class="game-gallery-image">
+            <div class="game-gallery-image">
                 <img src="/image-gallery/home-image-1.png" alt="Game Image 1" class="game-image">
-            </a>
-            <a href="/" class="game-gallery-image">
+            </div>
+            <div  class="game-gallery-image">
                 <img src="/image-gallery/home-image-2.png" alt="" class="game-image">
-            </a>
-            <a href="/" class="game-gallery-image">
+            </div>
+            <div  class="game-gallery-image">
                 <img src="/image-gallery/home-image-3.png" alt="" class="game-image">
-            </a>
-            <a href="/" class="game-gallery-image">
-                <img src="/image-gallery/home-image-4.png" alt="" class="game-image">
-            </a>
+            </div>
         </div>
     </div>
 
@@ -63,7 +60,7 @@ use yii\helpers\Html;
             </div>
         </div>
 
-        <iframe width="100%" height="462" src="https://www.youtube.com/embed/1bYFoFej0bg?si=zAeJAFeh9o8I_C0c" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
+        <iframe width="100%" height="462" src="https://www.youtube.com/embed/Zdb2rsA3wU0?si=6nApxwBJnvN-kfuM" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
     </div>
 
     <div class="home-job-section">

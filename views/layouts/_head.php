@@ -145,7 +145,8 @@ $games = $this->params['headerContent']['games'];
             <a href="/contact" class="navbar-link"><?php echo $contacts ?></a>
         </li>
     </ul>
-    <div class="languages-header">
+    <ul class="navbar-misc">
+    <div class="languages-header" style="display:none">
     </div>
     <?php $languages = \yii\helpers\ArrayHelper::map(\app\models\Lang::find()->all(),'url','name'); //var_dump($languages); die();?>
     <?php unset($languages[Yii::$app->controller->currentLang->url]); ?>
@@ -162,7 +163,6 @@ $games = $this->params['headerContent']['games'];
 
         </ul>
     </div>
-    <ul class="navbar-misc">
         <div class="hamburger-menu">
             <span></span>
             <span></span>
