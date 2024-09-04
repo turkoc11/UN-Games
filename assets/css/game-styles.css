@@ -79,16 +79,17 @@ nav ul {
     padding: 0;
     display: flex;
     justify-content: center;
+    align-items: center;
 }
 
 nav ul li {
-    margin: 0 1em;
+
 }
 
 nav ul li a {
     color: #ffffff;
     text-decoration: none;
-    padding: 0.5em 1em;
+
 }
 
 
@@ -431,11 +432,15 @@ box-shadow: 17px 10px 18px -9px rgba(133,133,133,1);
     display: none;
 }
 
+.navbar-misc{
+    gap: 20px;
+}
+
 @media(max-width:768px){
     .navbar-global{
         padding-left: 10px;
         padding-right: 10px;
-        gap: 50px;
+        gap: unset;
     }
     .navbar-switch{
         display: none;
@@ -444,8 +449,7 @@ box-shadow: 17px 10px 18px -9px rgba(133,133,133,1);
         width: 50px;
     }
     .navbar-dropdown-menu.active{
-        padding:10px 20px 10px 20px;
-        height: 100vh;
+        padding:10px 10px 10px 10px;
     }
     .dropdown-title{
         font-size: 20px;
@@ -458,7 +462,8 @@ box-shadow: 17px 10px 18px -9px rgba(133,133,133,1);
     .dropdown-game-image{
         max-width: 200px;
         max-height: 200px;
-        width: 200px;
+        width: 150px;
+        height: 150px;
     }
     .hamburger-menu{
         display: flex;
@@ -2615,6 +2620,9 @@ td{
     #contact-form .form-field{
         width: 100%;
     }
+    .navbar-navigation{
+        gap: 20px;
+    }
 }
 
 div.stripe-payment{
@@ -2664,7 +2672,7 @@ div.stripe-payment{
     display: flex;
     align-items: center;
     width: 120px;
-    margin-top: 20px;
+    margin-top: 10px;
     justify-content: center;
 }
 
@@ -2683,4 +2691,153 @@ input[type="number"]:hover,
 input[type="number"]:focus {
     appearance: none;
     -moz-appearance: textfield;
+}
+
+.field-registrationform-email{
+    display: flex;
+    flex-direction: column;
+}
+
+.control-label{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24.56px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: left;
+    color: #fff;
+}
+.form-control{
+    background: #FFFFFF;
+    border-radius: 8px;
+    padding-left: 20px;
+    padding-right: 6px;
+    padding-top: 6px;
+    padding-bottom: 6px;
+}
+
+.registration-big-text{
+    font-size: 35px;
+    font-weight: 600;
+    line-height: 65.63px;
+}
+
+.registration-top-text{
+    font-size: 16px;
+    line-height: 30px;
+}
+
+.field-registrationform-password{
+    display: flex;
+    flex-direction: column;
+}
+
+.field-registrationform-passwordconfirm{
+    display: flex;
+    flex-direction: column;
+}
+
+.form-registration-container{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+    margin-top: 30px;
+}
+
+.help-block{
+    color: red;
+    margin-top: 5px;
+}
+
+.btn-primary{
+    border-radius: 8px;
+    background: #DC7000;
+    padding-left: 13.5px;
+    padding-right: 13.5px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 80px;
+    margin-top: 10px;
+    justify-content: center;
+}
+
+.registration-check{
+    margin-top: 20px;
+}
+
+.registration-check-text{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24.56px;
+    letter-spacing: -0.30000001192092896px;
+    color: #fff;
+}
+
+.registration-check-link{
+    font-size: 16px;
+    font-weight: 600;
+    line-height: 24.56px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: left;
+    color: #fff;
+    text-decoration: underline;
+}
+
+.card-body{
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 10px;
+}
+
+.field-loginform-email{
+    display: flex;
+    flex-direction: column;
+}
+
+.field-loginform-email label{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24.56px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: left;
+    color: #fff;
+}
+
+.field-loginform-password{
+    display: flex;
+    flex-direction: column;
+}
+
+.field-loginform-password label{
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 24.56px;
+    letter-spacing: -0.30000001192092896px;
+    text-align: left;
+    color: #fff;
+}
+
+.presentation-image{
+    max-width: 60%;
+    object-fit: cover;
+}
+
+@media(max-width:768px){
+    .presentation-image{
+        max-width: unset;
+    }
+    .form-subscribe .form-field{
+        gap: unset;
+    }
 }

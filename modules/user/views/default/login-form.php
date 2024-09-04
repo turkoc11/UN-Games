@@ -66,9 +66,7 @@ use yii\helpers\Html;
                         </div>
                     </div>
 
-                    <div class="simple-footer">
-                        <?= Yii::$app->controller->coreSettings->copy;?>
-                    </div>
+                
                 </div>
             </div>
         </div>

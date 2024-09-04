@@ -10,7 +10,7 @@ use yii\helpers\Html;
 
 <main class="main">
     <div class="home-presentation-screen">
-        <img src="" alt="" class="presentation-image">
+        <img src="/image-gallery/home-top-image.png" alt="" class="presentation-image">
         <div class="presentation-text-container">
             <h1 class="presentation-header">
                 <?php echo Yii::t('app', 'Work that we produce for our clients')?>
@@ -176,7 +176,7 @@ use yii\helpers\Html;
             <img src="/image-gallery/image-project-section-3.png" alt="" class="portfolio-image">
             <img src="/image-gallery/image-project-section-4.png" alt="" class="portfolio-image">
             <img src="/image-gallery/image-project-section-5.png" alt="" class="portfolio-image">
-            <img src="/image-gallery/image-project-section-5.png" alt="" class="portfolio-image">
+            <img src="/image-gallery/image-project-section-6.png" alt="" class="portfolio-image">
         </div>
 
         <a href="/services" class="portfolio-link">

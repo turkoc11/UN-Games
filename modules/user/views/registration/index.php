@@ -16,9 +16,9 @@ $this->title = Yii::t('app', 'Зареєструватися');
         <div class="col-12 py-5">
             <div class="users-users-register">
 
-                <h2 class="font-weight-normal mb-4"><?= Html::encode($this->title) ?></h2>
+                <h2 class="registration-big-text"><?= Html::encode($this->title) ?></h2>
 
-                <p><?= Yii::t('app', 'Поля з * обов\'язкові для заповнення') ?></p>
+                <p class="registration-top-text"><?= Yii::t('app', 'Поля з * обов\'язкові для заповнення') ?></p>
 
                 <?php $form = ActiveForm::begin([
                     'id' => 'registration-form',
@@ -27,7 +27,7 @@ $this->title = Yii::t('app', 'Зареєструватися');
                     'validationUrl' => 'registration-validate',
                 ]); ?>
                 <div class="row">
-                    <div class="col-md-6">                       
+                    <div class="col-md-6 form-registration-container">                       
 
                         <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
 
@@ -41,20 +41,20 @@ $this->title = Yii::t('app', 'Зареєструватися');
                        
 
                       
-                     
-
-                    </div>
-                </div>
-                <div class="row">
-                    <div class="col-md-6">
-                        <div class="form-group">
-                            <?= Html::submitButton(Yii::t('app', 'Зареєструватися'), [
+<?= Html::submitButton(Yii::t('app', 'Зареєструватися'), [
                                 'class' => 'btn btn-primary',
                                 'id' => 'btn-submit'
                             ]) ?>
+
+                    </div>
+                </div>
+                <div class="row registration-check">
+                    <div class="col-md-6">
+                        <div class="form-group">
+                            
                             <div>
-                                <span><?= Yii::t('app', 'Вже є акаунт?') ?></span>
-                                <span><a href="/login"><?= Yii::t('app', 'Увійти') ?></a></span>
+                                <span class="registration-check-text"><?= Yii::t('app', 'Вже є акаунт?') ?></span>
+                                <span><a href="/login" class="registration-check-link"><?= Yii::t('app', 'Увійти') ?></a></span>
                             </div>
                         </div>
                     </div>
