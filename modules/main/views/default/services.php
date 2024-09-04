@@ -45,7 +45,7 @@
     </div>
 
     <div class="services-video-section">
-        <img src="/image-gallery/Video-Image.png" alt="" class="services-image">
+    <iframe width="100%" height="515" src="https://www.youtube.com/embed/gq2GV3cfjG0?si=l3AkGcKXb06tbd45" title="YouTube video player" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share" referrerpolicy="strict-origin-when-cross-origin" allowfullscreen></iframe>
         <div class="video-section-text-container">
             <h3 class="video-text-big-text"><?php echo Yii::t('app', 'Наши услуги')?></h3>
             <div class="video-text-small-text">
@@ -56,25 +56,25 @@
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.5986 0C5.08463 0 0.598633 4.486 0.598633 10C0.598633 15.514 5.08463 20 10.5986 20C16.1126 20 20.5986 15.514 20.5986 10C20.5986 4.486 16.1126 0 10.5986 0ZM8.59963 14.413L5.59408 11.4139C5.20333 11.024 5.20254 10.3912 5.59232 10.0003C5.98234 9.60918 6.61564 9.60846 7.00656 9.9987L8.59763 11.587L13.1846 7C13.5751 6.60953 14.2082 6.60953 14.5986 7C14.9891 7.39047 14.9891 8.02353 14.5986 8.414L8.59963 14.413Z" fill="#2FAB73"/>
                     </svg>
-                    <div class="list-elem-text">Lorem ipsum dolor sit.</div>
+                    <div class="list-elem-text">Lorem ipsum dolor sit1.</div>
                 </li>
                 <li class="video-text-list-elem">
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.5986 0C5.08463 0 0.598633 4.486 0.598633 10C0.598633 15.514 5.08463 20 10.5986 20C16.1126 20 20.5986 15.514 20.5986 10C20.5986 4.486 16.1126 0 10.5986 0ZM8.59963 14.413L5.59408 11.4139C5.20333 11.024 5.20254 10.3912 5.59232 10.0003C5.98234 9.60918 6.61564 9.60846 7.00656 9.9987L8.59763 11.587L13.1846 7C13.5751 6.60953 14.2082 6.60953 14.5986 7C14.9891 7.39047 14.9891 8.02353 14.5986 8.414L8.59963 14.413Z" fill="#2FAB73"/>
                     </svg>
-                    <div class="list-elem-text">Lorem ipsum dolor sit.</div>
+                    <div class="list-elem-text">Lorem ipsum dolor sit2.</div>
                 </li>
                 <li class="video-text-list-elem">
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.5986 0C5.08463 0 0.598633 4.486 0.598633 10C0.598633 15.514 5.08463 20 10.5986 20C16.1126 20 20.5986 15.514 20.5986 10C20.5986 4.486 16.1126 0 10.5986 0ZM8.59963 14.413L5.59408 11.4139C5.20333 11.024 5.20254 10.3912 5.59232 10.0003C5.98234 9.60918 6.61564 9.60846 7.00656 9.9987L8.59763 11.587L13.1846 7C13.5751 6.60953 14.2082 6.60953 14.5986 7C14.9891 7.39047 14.9891 8.02353 14.5986 8.414L8.59963 14.413Z" fill="#2FAB73"/>
                     </svg>
-                    <div class="list-elem-text">Lorem ipsum dolor sit.</div>
+                    <div class="list-elem-text">Lorem ipsum dolor sit3.</div>
                 </li>
                 <li class="video-text-list-elem">
                     <svg width="21" height="20" viewBox="0 0 21 20" fill="none" xmlns="http://www.w3.org/2000/svg">
                         <path d="M10.5986 0C5.08463 0 0.598633 4.486 0.598633 10C0.598633 15.514 5.08463 20 10.5986 20C16.1126 20 20.5986 15.514 20.5986 10C20.5986 4.486 16.1126 0 10.5986 0ZM8.59963 14.413L5.59408 11.4139C5.20333 11.024 5.20254 10.3912 5.59232 10.0003C5.98234 9.60918 6.61564 9.60846 7.00656 9.9987L8.59763 11.587L13.1846 7C13.5751 6.60953 14.2082 6.60953 14.5986 7C14.9891 7.39047 14.9891 8.02353 14.5986 8.414L8.59963 14.413Z" fill="#2FAB73"/>
                     </svg>
-                    <div class="list-elem-text">Lorem ipsum dolor sit.</div>
+                    <div class="list-elem-text">Lorem ipsum dolor sit4.</div>
                 </li>
             </ul>
         </div>

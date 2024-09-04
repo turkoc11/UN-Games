@@ -1910,6 +1910,7 @@ margin-bottom: 6px;
     padding-right: 146px;
     justify-content: space-between;
     align-items: center;
+    gap: 60px;
 }
 .video-section-text-container{
     max-width: 428px;
@@ -2044,6 +2045,7 @@ margin-bottom: 6px;
         padding-left: 15px;
         padding-right: 15px;
         flex-direction: column  ;
+        gap: unset;
     }
     .services-image{
         width: 100%;
