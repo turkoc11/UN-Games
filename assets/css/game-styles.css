@@ -2768,7 +2768,7 @@ input[type="number"]:focus {
     cursor: pointer;
     display: flex;
     align-items: center;
-    width: 80px;
+    width: max-content;
     margin-top: 10px;
     justify-content: center;
 }
