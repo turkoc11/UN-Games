@@ -26,6 +26,13 @@ use ruskid\stripe\StripeCheckoutCustom;
         </div>
         <img src="<?php echo $model->image2?>" alt="а сюда другую картинку" class="services-content-image">
     </div>
+
+    <div class="progress-bar-container">
+        <h1 class="progress-bar-text">
+            На шкале ниже вы можете узнать, насколько данная игра готова
+        </h1>
+        <progress class="progress-bar" max="100" value="50"></progress>
+    </div>
     <?php if (!Yii::$app->user->isGuest) {?>
     <div class="stripe-payment">
         <label for="tentacles" class="stripe-label"><?php echo Yii::t('app', 'Введите сумму доната')?></label>

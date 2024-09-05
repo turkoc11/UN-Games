@@ -758,8 +758,6 @@ box-shadow: 17px 10px 18px -9px rgba(133,133,133,1);
 }
 
 .game-image{
-    width: 302px;
-    height: 327px;
     border-radius: 20px;
     object-fit: cover;
 }
@@ -993,10 +991,7 @@ box-shadow: 17px 10px 18px -9px rgba(133,133,133,1);
         margin-top: 37px;
         justify-content: center;
     }
-    .game-image{
-        width: 150px;
-        height: 170px;
-    }
+    
     .home-sectional-text{
         margin-top: 80px;
     }
@@ -2841,5 +2836,109 @@ input[type="number"]:focus {
     }
     .form-subscribe .form-field{
         gap: unset;
+    }
+}
+
+@media (max-width:360px){
+    .form-subscribe .form-field{
+        padding-left: 5px;
+    }
+}
+
+.form-submit-subscribe button{
+    font-size: 10px;
+    padding-left: 8px;
+    padding-right: 8px;
+    padding-top: 5px;
+    padding-bottom: 5px;
+    line-height: 14px;
+}
+
+.progress-bar-container{
+    display: flex;
+    margin-top: 60px;
+    flex-direction: column;
+    align-items: center;
+}
+
+.progress-bar-text{
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 59.56px;
+    text-align: center;
+    color: #fff;
+}
+
+progress {
+    -webkit-appearence:none;
+    appearance: none;
+    position: relative;
+    width: 50%;
+    height: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+progress::-webkit-progress-bar 
+{ background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;}
+
+progress::-webkit-progress-value {
+    background-image:
+    -webkit-linear-gradient(-45deg, 
+                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                            rgba(0,0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(top, 
+                            rgba(255, 255, 255, .25), 
+                            rgba(0, 0, 0, .25)),
+    -webkit-linear-gradient(left, rgb(123, 82, 189), #f44);
+
+ border-radius: 2px; 
+ background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+progress::-moz-progress-bar {
+background-color: #eee;
+    border-radius: 2px;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.25) inset;
+}
+
+progress::-moz-progress-value{
+    background-image:
+    -webkit-linear-gradient(-45deg, 
+                            transparent 33%, rgba(0, 0, 0, .1) 33%, 
+                            rgba(0,0, 0, .1) 66%, transparent 66%),
+    -webkit-linear-gradient(top, 
+                            rgba(255, 255, 255, .25), 
+                            rgba(0, 0, 0, .25)),
+    -webkit-linear-gradient(left, rgb(123, 82, 189), #f44);
+
+ border-radius: 2px; 
+ background-size: 35px 20px, 100% 100%, 100% 100%;
+}
+
+
+progress::after{
+    content: attr(value)'%';
+    position: absolute;
+    z-index: 2;
+    font-size: 24px;
+    font-weight: 600;
+    color: #252525;
+}
+
+@media (max-width:768px){
+    div.stripe-payment{
+        padding-right: 15px;
+        padding-left: 15px;
+    }
+    .progress-bar-text{
+        font-size: 20px;
+        line-height: 28px;
+    }
+    progress::after{
+        font-size: 16px;
     }
 }
