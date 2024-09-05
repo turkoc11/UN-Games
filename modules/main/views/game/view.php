@@ -50,7 +50,7 @@ use ruskid\stripe\StripeCheckoutCustom;
 </main>
 
 <script>
-    $(".stripe-payment").click(function(event){
+    $(".stripe-payment-button").click(function(event){
         let donate = $("#donate").val()
         let product = '<?php echo $model->title?>'
         if(!donate) {
@@ -58,7 +58,7 @@ use ruskid\stripe\StripeCheckoutCustom;
             $("#donat-payment").show();
             document.getElementById("donat-payment").innerHTML='<?= Yii::t("app", "Введите сумму доната")?>'
         }
-        $('.stripe-payment').attr('href', '/payment/form?paySum='+ donate + '&product=' + product)
+        $('.stripe-payment-button').attr('href', '/payment/form?paySum='+ donate + '&product=' + product)
 
     });
 </script>

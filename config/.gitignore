@@ -2,3 +2,4 @@ test_db.php
 /common/db/
 /vendor
 common.php
+/config/common.php
