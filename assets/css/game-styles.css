@@ -2956,7 +2956,7 @@ progress::after{
 .contact-social-image{
     -webkit-filter: invert(100%);
     filter: invert(100%);
-    width: 16px;
+    width: 20px;
 }
 
 .field-subscribe-email{
