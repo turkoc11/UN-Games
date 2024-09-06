@@ -54,8 +54,8 @@ use yii\web\JsExpression;
                     <img src="/image-gallery/x-logo.webp" alt="" class="contact-social-image">
 
                 </a>
-                <a href="https://www.tiktok.com/@ungames.company" class="contact-social-image" target="_blank" class="social-media-contact-link">
-                    <img src="/image-gallery/tik-tok.webp" alt="">
+                <a href="https://www.tiktok.com/@ungames.company"  target="_blank" class="social-media-contact-link">
+                    <img src="/image-gallery/tik-tok.webp" class="contact-social-image" alt="">
                 </a>
             </div>
         </div>
