@@ -76,7 +76,7 @@ if($lang == '/' || $lang == '/en/'){
             </div>
         </div>
         <div class="top-part-contact">
-            <a href="/contacts" class="contact-us-link"><?php echo $contacts ?></a>
+            <a href="/contact" class="contact-us-link"><?php echo $contacts ?></a>
             <a href="mailto: ungames.eu@gmail.com" class="footer-contact-text">ungames.eu@gmail.com</a>
         </div>
         <div class="top-part-socials socials-desktop">

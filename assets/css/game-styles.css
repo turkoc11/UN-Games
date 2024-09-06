@@ -2477,7 +2477,7 @@ td{
 
 .form-subscribe .form-field input{
     border: none;
-    font-size: 13px;
+    font-size: 18px;
     font-weight: 300;
     line-height: 19.5px;
     text-align: start;
@@ -2490,8 +2490,8 @@ td{
     padding-left: 13.5px;
     padding-right: 13.5px;
     padding-top: 8px;
-    padding-bottom: 9px;
-    font-size: 13px;
+    padding-bottom: 8px;
+    font-size: 16px;
     text-transform: uppercase;
     color: #fff;
     font-weight: 400;
@@ -2856,14 +2856,7 @@ input[type="number"]:focus {
     }
 }
 
-.form-submit-subscribe button{
-    font-size: 10px;
-    padding-left: 8px;
-    padding-right: 8px;
-    padding-top: 5px;
-    padding-bottom: 5px;
-    line-height: 14px;
-}
+
 
 .progress-bar-container{
     display: flex;
@@ -2959,3 +2952,10 @@ progress::after{
     filter: invert(100%);
     width: 16px;
 }
+
+.field-subscribe-email{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
