@@ -29,9 +29,9 @@ use ruskid\stripe\StripeCheckoutCustom;
 
     <div class="progress-bar-container">
         <h1 class="progress-bar-text">
-            На шкале ниже вы можете узнать, насколько данная игра готова
+           <?php echo Yii::t('app', 'На шкале ниже вы можете узнать, насколько данная игра готова')?> 
         </h1>
-        <progress class="progress-bar" max="100" value="50"></progress>
+        <progress class="progress-bar" max="100" value="<?php echo $model->percent ?>"></progress>
     </div>
     <?php if (!Yii::$app->user->isGuest) {?>
     <div class="stripe-payment">

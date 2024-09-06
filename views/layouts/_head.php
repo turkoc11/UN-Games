@@ -122,7 +122,10 @@ $games = $this->params['headerContent']['games'];
         </ul>
 
     </ul>
+    <a href="/" class="navbar-logo-link">
     <img src="/image-gallery/logo.png" alt="" class="navbar-logo">
+    </a>
+    
     <ul class="navbar-navigation">
         <li class="navbar-elem">
             <a href="/" class="navbar-link"><?php echo $homeString ?></a>

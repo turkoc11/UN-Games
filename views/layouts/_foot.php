@@ -86,26 +86,26 @@ if($lang == '/' || $lang == '/en/'){
             <a href="https://www.instagram.com/ungames.company/" class="socials">
                 <img src="/image-gallery/instagram.png" alt="" class="socials-image">
             </a>
-            <a href="X.com/UNgames" class="socials">
+            <a href="https://www.X.com/UNgames" class="socials">
                 <img src="/image-gallery/x-logo.webp" alt="" class="socials-image">
             </a>
-            <a href="" class="socials">
+            <a href="https://www.tiktok.com/@ungames.company" class="socials">
                 <img src="/image-gallery/tik-tok.webp" alt="" class="socials-image">
             </a>
         </div>
     </div>
     <div class="mobile-footer-part">
         <div class="top-part-socials">
-            <a href="https://www.facebook.com/profile.php?id=61562975393263" class="socials">
+            <a href="https://www.facebook.com/profile.php?id=61562975393263" target="_blank" class="socials">
                 <img src="/image-gallery/facebook.png" alt="" class="socials-image">
             </a>
-            <a href="https://www.instagram.com/ungames.company/" class="socials">
+            <a href="https://www.instagram.com/ungames.company/" target="_blank" class="socials">
                 <img src="/image-gallery/instagram.png" alt="" class="socials-image">
             </a>
-            <a href="X.com/UNgames" class="socials">
+            <a href="https://www.X.com/UNgames" target="_blank" class="socials">
                 <img src="/image-gallery/x-logo.webp" alt="" class="socials-image">
             </a>
-            <a href="" class="socials">
+            <a href="https://www.tiktok.com/@ungames.company" target="_blank"  class="socials">
                 <img src="/image-gallery/tik-tok.webp" alt="" class="socials-image">
             </a>
         </div>

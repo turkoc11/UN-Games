@@ -71,29 +71,5 @@ if($lang == '/' || $lang == '/en/'){
             </div>
         </div>
 
-        <div class="about-team">
-            <div class="about-team-text"><?php echo Yii::t('app', 'Наша Команда')?></div>
-            <div class="about-team-content-container">
-                <div class="team-content-elem">
-                    <img src="/image-gallery/Bill.png" alt="" class="team-content-image">
-                    <div class="team-content-name">John Peter</div>
-                    <div class="team-content-stack">DevOps</div>
-                </div>
-                <div class="team-content-elem">
-                    <img src="/image-gallery/Bill.png" alt="" class="team-content-image">
-                    <div class="team-content-name">John Peter</div>
-                    <div class="team-content-stack">DevOps</div>
-                </div>
-                <div class="team-content-elem">
-                    <img src="/image-gallery/Bill.png" alt="" class="team-content-image">
-                    <div class="team-content-name">John Peter</div>
-                    <div class="team-content-stack">DevOps</div>
-                </div>
-                <div class="team-content-elem">
-                    <img src="/image-gallery/Bill.png" alt="" class="team-content-image">
-                    <div class="team-content-name">John Peter</div>
-                    <div class="team-content-stack">DevOps</div>
-                </div>
-            </div>
-        </div>
+        
     </main>

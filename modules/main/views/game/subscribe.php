@@ -27,7 +27,7 @@ $settings = $this->params['headerContent']['settings'];
                 ]); ?>
                 <div class="form-field">
                     <?= $form->field($model, 'email', [ 'template' => '<label for="email"  data-wow-duration="1s" data-wow-delay="0.1s">Email *</label> {hint}{error}
-                                                 <input type="text" id="email" name="Subscribe[email]" aria-required="true"  data-constraints="@Required @JustLetters"/>
+                                                 <input type="text" id="email" placeholder="Email" name="Subscribe[email]" aria-required="true"  data-constraints="@Required @JustLetters"/>
                                                  '])
                         ->textInput();
                     ?>

@@ -33,3 +33,16 @@ document.addEventListener("DOMContentLoaded", function() {
         sections[0].classList.add('active');
     }
 });
+
+
+document.addEventListener('DOMContentLoaded',function(){
+    const gameImages = document.querySelectorAll('.game-image');
+    const navDropdown = document.querySelector('.navbar-dropdown-menu');
+
+    gameImages.forEach(gameImage => {
+        gameImage.addEventListener('click', function(){
+            navDropdown.classList.toggle('active')
+            window.scrollTo(0, 0);
+        })
+    })
+})
