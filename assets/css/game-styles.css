@@ -2965,3 +2965,6 @@ progress::after{
     justify-content: center;
 }
 
+#payment-form button{
+    font-size: 18px;
+}

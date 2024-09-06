@@ -15,7 +15,7 @@ $paymentIntent = $model->paymentIntents->create(
 <body>
     <main>
         <h1>
-            Stripe Samle
+            Введите информацию о платёжных данных
         </h1>
         <form id="payment-form" lang="en">
             <div id="payment-element">
@@ -51,3 +51,42 @@ $paymentIntent = $model->paymentIntents->create(
     })
 </script>
 </body>
+
+
+<style>
+#payment-form button{
+    border-radius: 8px;
+    background: #DC7000;
+    padding-left: 13.5px;
+    padding-right: 13.5px;
+    padding-top: 8px;
+    padding-bottom: 9px;
+    font-size: 13px;
+    text-transform: uppercase;
+    color: #fff;
+    font-weight: 400;
+    line-height: 19.5px;
+    text-align: center;
+    border: none;
+    cursor: pointer;
+    display: flex;
+    align-items: center;
+    width: 120px;
+    margin-top: 20px;
+    justify-content: center;
+}
+
+h1{
+    font-size: 33px;
+    font-weight: 600;
+    line-height: 59.56px;
+    text-align: center;
+}
+
+@media (max-width:768px){
+    h1{
+        font-size: 20px;
+        line-height: 28px;
+    }
+}
+</style>
