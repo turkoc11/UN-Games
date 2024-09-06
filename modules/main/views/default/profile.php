@@ -23,7 +23,7 @@ if(!empty($uroles)) {
         </div>
 
         <div class="balance-field">
-            <span><?php echo Yii::t('app', 'Ваш баланс составляет: ')?>Ваш баланс составляет: </span> <span class="dynamic-field"><?php echo $user->balance ?></span>
+            <span><?php echo Yii::t('app', 'Ваш баланс составляет: ')?> </span> <span class="dynamic-field"><?php echo $user->balance ?></span>
         </div>
 
         <div class="donation-field">
