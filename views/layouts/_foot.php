@@ -80,16 +80,16 @@ if($lang == '/' || $lang == '/en/'){
             <a href="mailto: ungames.eu@gmail.com" class="footer-contact-text">ungames.eu@gmail.com</a>
         </div>
         <div class="top-part-socials socials-desktop">
-            <a href="https://www.facebook.com/profile.php?id=61562975393263" class="socials">
+            <a href="https://www.facebook.com/profile.php?id=61562975393263" target="_blank" class="socials">
                 <img src="/image-gallery/facebook.png" alt="" class="socials-image">
             </a>
-            <a href="https://www.instagram.com/ungames.company/" class="socials">
+            <a href="https://www.instagram.com/ungames.company/" target="_blank" class="socials">
                 <img src="/image-gallery/instagram.png" alt="" class="socials-image">
             </a>
-            <a href="https://www.X.com/UNgames" class="socials">
+            <a href="https://www.X.com/UNgames" target="_blank" class="socials">
                 <img src="/image-gallery/x-logo.webp" alt="" class="socials-image">
             </a>
-            <a href="https://www.tiktok.com/@ungames.company" class="socials">
+            <a href="https://www.tiktok.com/@ungames.company" target="_blank" class="socials">
                 <img src="/image-gallery/tik-tok.webp" alt="" class="socials-image">
             </a>
         </div>

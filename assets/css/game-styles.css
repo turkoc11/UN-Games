@@ -2952,3 +2952,9 @@ progress::after{
         font-size: 16px;
     }
 }
+
+.contact-social-image{
+    -webkit-filter: invert(100%);
+    filter: invert(100%);
+    width: 16px;
+}
