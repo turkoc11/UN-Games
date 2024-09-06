@@ -2854,6 +2854,12 @@ input[type="number"]:focus {
     .form-subscribe .form-field{
         padding-left: 5px;
     }
+    .form-subscribe .form-field input{
+        font-size: 10px;
+    }
+    .form-submit-subscribe button{
+        font-size: 12px;
+    }
 }
 
 
