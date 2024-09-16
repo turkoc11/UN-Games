@@ -26,7 +26,7 @@ use yii\web\JsExpression;
     <div class="contact-contacts-container">
         <div class="contacts-social-media-container">
             <div class="social-media-text">
-                Наши соцсети
+                <?php echo Yii::t('app', 'Наши соцсети')?>
             </div>
             <div class="social-media-images-container">
                 <a href="https://www.facebook.com/profile.php?id=61562975393263" target="_blank" class="social-media-contact-link">
@@ -70,7 +70,7 @@ use yii\web\JsExpression;
             <svg width="20" height="29" viewBox="0 0 20 29" fill="none" xmlns="http://www.w3.org/2000/svg">
                 <path d="M10.254 0.89209C5.04313 0.89209 0.803711 5.13151 0.803711 10.3423C0.803711 16.8918 10.2632 28.0796 10.2632 28.0796C10.2632 28.0796 19.7042 16.5697 19.7042 10.3423C19.7042 5.13151 15.4649 0.89209 10.254 0.89209ZM13.1053 13.1094C12.3191 13.8954 11.2866 14.2885 10.254 14.2885C9.22148 14.2885 8.18867 13.8954 7.40279 13.1094C5.83051 11.5373 5.83051 8.97914 7.40279 7.40687C8.16412 6.64521 9.17684 6.22571 10.254 6.22571C11.3311 6.22571 12.3436 6.64537 13.1053 7.40687C14.6776 8.97914 14.6776 11.5373 13.1053 13.1094Z" fill="white"/>
             </svg>
-            <div class="location-adress"> Сюда вводить адресс</div>
+            <div class="location-adress"><?php echo Yii::t('app', 'Сюда вводить адресс')?> </div>
         </div>
     </div>
 

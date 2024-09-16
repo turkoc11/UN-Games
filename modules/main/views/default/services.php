@@ -1,4 +1,13 @@
 <?php 
+$url = explode('/',Yii::$app->request->getUrl());
+
+$serviceLink = null;
+$lang = null;
+if($url[1] == 'en' || $url[1] == 'ru'){
+    $lang = '/'.$url[1].'/';
+}else{
+    $lang = '/';
+}
 ?>
 <main class="main">
     <div class="services-head-container">
@@ -87,7 +96,7 @@
             <div class="services-content-small-text">
                 <?php echo Yii::t('app', 'Мы специализируемся на создании уникальных игровых проектов, начиная от концепта и заканчивая финальным релизом. Наши игры привлекают внимание благодаря высокому качеству графики, захватывающему геймплею и глубокой проработке сюжета. Мы разрабатываем игры для различных платформ, включая ПК, консоли и мобильные устройства.')?>
                 </div>
-            <a href="/contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
+            <a href="<?php echo $lang ?>contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
         </div>
     </div>
     <div class="services-content-container">
@@ -96,7 +105,7 @@
             <div class="services-content-small-text">
                 <?php echo Yii::t('app', 'Если у вас есть идея для игры, но нет ресурсов для её реализации, мы предлагаем услуги аутсорсинга. Наша команда профессионалов готова взять на себя полный цикл разработки вашего проекта, включая дизайн, программирование, тестирование и выпуск на рынок.')?>
                 </div>
-            <a href="/contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
+            <a href="<?php echo $lang ?>contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
         </div>
         <img src="/image-gallery/services-content-2.png" alt="" class="services-content-image">
     </div>
@@ -107,7 +116,7 @@
             <div class="services-content-small-text">
                 <?php echo Yii::t('app', 'Наша команда экспертов готова поделиться своими знаниями и опытом. Мы проводим консультации по разработке игр, маркетингу и монетизации. Также предлагаем обучающие программы для начинающих разработчиков и студий.')?>
                 </div>
-            <a href="/contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
+            <a href="<?php echo $lang ?>contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
         </div>
     </div>
 </main>

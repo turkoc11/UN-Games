@@ -15,19 +15,19 @@ $paymentIntent = $model->paymentIntents->create(
 <body>
     <main>
         <h1>
-            Введите информацию о платёжных данных
+            <?php echo Yii::t('app', 'Введите информацию о платёжных данных')?>
         </h1>
         <form id="payment-form" lang="en">
             <div id="payment-element">
 
             </div>
-            <button>Pay</button>
+            <button><?php echo Yii::t('app', 'Оплатить')?></button>
             <div id="error-messages"></div>
         </form>
     </main>
 <script  src="https://js.stripe.com/v3"></script>
 <script>
-    const stripe = Stripe('<?=Yii::$app->params['stripe']['publicKey']?>', {})
+    const stripe = Stripe('<?=Yii::$app->params['stripe']['publicKey']?>', {locale: 'en'})
     const elements = stripe.elements({
         clientSecret: '<?=$paymentIntent->client_secret ?>'
         // locale: 'en'

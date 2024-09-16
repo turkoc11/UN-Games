@@ -3,7 +3,7 @@
 use app\models\Access;
 
 $url = explode('/',Yii::$app->request->getUrl());
-//var_dump($url); die;
+//var_dump( Yii::$app->controller->currentLang->url); die;
 $serviceLink = null;
 $lang = null;
 if($url[1] == 'en' || $url[1] == 'ru'){
@@ -11,7 +11,7 @@ if($url[1] == 'en' || $url[1] == 'ru'){
 }else{
     $lang = '/';
 }
-//var_dump($lang); die;
+//var_dump(Yii::$app->language); die;
 if($lang == '/' || $lang == '/en/'){
   $about = 'About';
   $homeString = 'Home';
@@ -38,7 +38,7 @@ $games = $this->params['headerContent']['games'];
 
 <!DOCTYPE html>
 
-<html lang="en">
+<html lang="<?= Yii::$app->language ?>">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
@@ -109,7 +109,7 @@ $games = $this->params['headerContent']['games'];
             <?php if (!empty($games)) {?>
             <?php foreach ($games as $game) {?>
             <li class="dropdown-menu-game">
-                <a href="/game/<?php echo $game->id?>" class="dropdown-game-link">
+                <a href="https://ungames.company<?php echo $lang ?>game/<?php echo $game->id?>" class="dropdown-game-link">
                     <img src="<?php echo $game->image?>" alt="<?php echo $game->title?> Cover" class="dropdown-game-image">
                     <div class="game-title">
                         <?php echo $game->title?>
@@ -128,24 +128,24 @@ $games = $this->params['headerContent']['games'];
     
     <ul class="navbar-navigation">
         <li class="navbar-elem">
-            <a href="/" class="navbar-link"><?php echo $homeString ?></a>
+            <a href="<?php echo $lang?>" class="navbar-link"><?php echo $homeString ?></a>
         </li>
         <li class="navbar-elem navbar-dropdown">
             <?php echo $gameString ?>
         </li>
         <li class="navbar-elem navbar-switch">
-            <a href="/about" class="navbar-link"><?php echo $about ?></a>
+            <a href="<?php echo $lang?>about" class="navbar-link"><?php echo $about ?></a>
         </li>
         <?php if(in_array('super_admin', $uroles) || in_array('donator', $uroles)) { ?>
         <li class="navbar-elem navbar-switch">
-            <a href="/news" class="navbar-link"><?php echo $news ?></a>
+            <a href="<?php echo $lang?>news" class="navbar-link"><?php echo $news ?></a>
         </li>
         <?php }?>
         <li class="navbar-elem navbar-switch">
-            <a href="/services" class="navbar-link"><?php echo $services ?></a>
+            <a href="<?php echo $lang?>services" class="navbar-link"><?php echo $services ?></a>
         </li>
         <li class="navbar-elem navbar-switch">
-            <a href="/contact" class="navbar-link"><?php echo $contacts ?></a>
+            <a href="<?php echo $lang?>contact" class="navbar-link"><?php echo $contacts ?></a>
         </li>
     </ul>
     <ul class="navbar-misc">
@@ -176,19 +176,19 @@ $games = $this->params['headerContent']['games'];
             <ul class="user-dropdown-menu">
                 <?php if (Yii::$app->user->isGuest) {?>
                 <li class="user-menu-elem">
-                    <a href="/login" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'войти')?></a>
+                    <a href="<?php echo $lang?>login" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'войти')?></a>
                 </li>
                 <li class="user-menu-elem">
-                    <a href="/registration" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'Регистрация')?></a>
+                    <a href="<?php echo $lang?>registration" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'Регистрация')?></a>
                 </li>
                 <?php } else {?>
                 <li class="user-menu-elem">
-                    <a href="/logout" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'Выход')?></a>
+                    <a href="<?php echo $lang?>logout" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'Выход')?></a>
                 </li>
                 <?php }?>
                 <?php if (!Yii::$app->user->isGuest) {?>
                 <li class="user-menu-elem">
-                    <a href="/profile" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'Профиль')?></a>
+                    <a href="<?php echo $lang?>profile" class="navbar-link user-dropdown-link"><?php echo Yii::t('app', 'Профиль')?></a>
                 </li>
                 <?php }?>
             </ul>

@@ -1,3 +1,16 @@
+<?php 
+
+$url = explode('/',Yii::$app->request->getUrl());
+
+$serviceLink = null;
+$lang = null;
+if($url[1] == 'en' || $url[1] == 'ru'){
+    $lang = '/'.$url[1].'/';
+}else{
+    $lang = '/';
+}
+
+?>
 <main class="main main_service">
     <!-- Banner - start -->
     <section

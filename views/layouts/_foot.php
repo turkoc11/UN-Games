@@ -66,17 +66,17 @@ if($lang == '/' || $lang == '/en/'){
             <img src="/image-gallery/logo.png" alt="Сюда лого вставить" class="footer-logo">
         </div>
         <div class="top-part-pages">
-            <a href="/" class="pages-big-text"><?php echo $home ?></a>
+            <a href="<?php echo $lang?>" class="pages-big-text"><?php echo $home ?></a>
             <div class="pages-footer-section">
-                <a href="/about" class="pages-footer"><?php echo $about ?></a>
-                <a href="/services" class="pages-footer"><?php echo $services ?></a>
+                <a href="<?php echo $lang?>about" class="pages-footer"><?php echo $about ?></a>
+                <a href="<?php echo $lang?>services" class="pages-footer"><?php echo $services ?></a>
                 <?php if(in_array('super_admin', $uroles) || in_array('donator', $uroles)) { ?>
-                <a href="/news" class="pages-footer"><?php echo $news ?></a>
+                <a href="<?php echo $lang?>news" class="pages-footer"><?php echo $news ?></a>
                 <?php }?>
             </div>
         </div>
         <div class="top-part-contact">
-            <a href="/contact" class="contact-us-link"><?php echo $contacts ?></a>
+            <a href="<?php echo $lang?>contact" class="contact-us-link"><?php echo $contacts ?></a>
             <a href="mailto: ungames.eu@gmail.com" class="footer-contact-text">ungames.eu@gmail.com</a>
         </div>
         <div class="top-part-socials socials-desktop">

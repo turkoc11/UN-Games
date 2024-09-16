@@ -4,7 +4,15 @@ use yii\helpers\Html;
 <?php
 //$this->params['breadcrumbs'][] = ['label' => Yii::$app->mv->gt('Home',[],false), 'url' => [$model->url]];
 //$this->params['breadcrumbs'][] = $model->url;
+$url = explode('/',Yii::$app->request->getUrl());
 
+$serviceLink = null;
+$lang = null;
+if($url[1] == 'en' || $url[1] == 'ru'){
+    $lang = '/'.$url[1].'/';
+}else{
+    $lang = '/';
+}
 
 ?>
 
@@ -20,7 +28,7 @@ use yii\helpers\Html;
                 <?php echo Yii::t('app', 'Откройте для себя мир безграничных возможностей, где каждое ваше желание становится реальностью. В UN games  мы создаем игры, которые вдохновляют, увлекают и дарят незабываемые эмоции.')?>
 
             </div>
-            <a href="/about" class="presentation-link">
+            <a href="<?php echo $lang ?>about" class="presentation-link">
                 <button class="presentation-button"><?php echo Yii::t('app', 'Больше о нас')?></button>
             </a>
         </div>
@@ -124,7 +132,7 @@ use yii\helpers\Html;
             <img src="/image-gallery/image-project-section-6.png" alt="" class="portfolio-image">
         </div>
 
-        <a href="/services" class="portfolio-link">
+        <a href="<?php echo $lang ?>/services" class="portfolio-link">
             <button class="portfolio-button">
                 <?php echo Yii::t('app', 'Больше')?>
 
