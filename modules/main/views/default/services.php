@@ -107,7 +107,7 @@ if($url[1] == 'en' || $url[1] == 'ru'){
                 </div>
             <a href="<?php echo $lang ?>contact" class="services-content-button"><?php echo Yii::t('app', 'Больше')?></a>
         </div>
-        <img src="/image-gallery/services-content-2.png" alt="" class="services-content-image">
+       |<!-- <img src="/image-gallery/services-content-2.png" alt="" class="services-content-image"> -->
     </div>
     <div class="services-content-container">
         <img src="/image-gallery/services-content-3.png" alt="" class="services-content-image">

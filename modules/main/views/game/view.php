@@ -24,7 +24,7 @@ use ruskid\stripe\StripeCheckoutCustom;
 <!--            <h3 class="services-content-big-text">Сюда какое-нибудь преимущество</h3>-->
             <div class="services-content-small-text"><?php echo $model->description2 ?></div>
         </div>
-        <img src="<?php echo $model->image2?>" alt="а сюда другую картинку" class="services-content-image">
+        <img src="<?php echo $model->image2?>" alt="" class="services-content-image">
     </div>
 
     <div class="progress-bar-container">
