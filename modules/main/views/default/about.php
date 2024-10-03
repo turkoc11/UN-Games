@@ -64,7 +64,7 @@ if($lang == '/' || $lang == '/en/'){
         </div>
 
         <div class="about-head-project">
-            <img src="/image-gallery/head-project-image.png" alt="" class="head-project-image">
+          |<!--  <img src="/image-gallery/head-project-image.png" alt="" class="head-project-image"> -->
             <div class="head-project-text-container">
                 <h3 class="head-project-big-text"><?php echo Yii::t('app', 'Наша Миссия')?></h3>
                 <div class="head-project-small-text"><?php echo Yii::t('app', 'Наша миссия — приносить радость и вдохновение каждому геймеру, создавая уникальные игровые миры, полные приключений, загадок и эмоций. Мы стремимся к тому, чтобы каждая наша игра оставила неизгладимое впечатление и стала любимой частью вашей игровой коллекции.')?></div>
