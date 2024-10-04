@@ -110,6 +110,54 @@ $act = Yii::$app->controller->action->id;
                 </ul>
             </li>
 
+            <p style="font-size: 14px;padding: 0px 35px 0px 15px;background: #eee;color:#000;"><?= Yii::t('app_admin', 'Prize') ?></p>
+
+
+            <li class="<?= $cont == 'prize' ? 'active' : '' ?>">
+                <a href="javascript:void(0)" class="waves-effect"> <i class="fa fa-list fa-fw" data-icon="v"></i>
+                    <span class="hide-menu"><?= Yii::t('app_admin', 'Prize') ?><span class="fa arrow"></span></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <?php if (\app\models\Access::checkAccess('prize/index')) { ?>
+                        <li class="<?= $cont == 'works' && in_array($act, [ 'index', 'update', 'view' ]) ? 'active' : '' ?>">
+                            <?= Html::a('<span class="hide-menu">' . Yii::t('app_admin', 'List') . '</span>',
+                                [ 'prize/index' ]
+                            ) ?>
+                        </li>
+                    <?php } ?>
+                    <?php if (\app\models\Access::checkAccess('prize/create')) { ?>
+                        <li class="<?= $cont == 'works' && in_array($act, [ 'create' ]) ? 'active' : '' ?>">
+                            <?= Html::a('<span class="hide-menu">' . Yii::t('app_admin', 'Create') . '</span>',
+                                [ 'prize/create' ]
+                            ) ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </li>
+
+            <li class="<?= $cont == 'user-prize' ? 'active' : '' ?>">
+                <a href="javascript:void(0)" class="waves-effect"> <i class="fa fa-list fa-fw" data-icon="v"></i>
+                    <span class="hide-menu"><?= Yii::t('app_admin', 'User Prize') ?><span class="fa arrow"></span></span>
+                </a>
+                <ul class="nav nav-second-level">
+                    <?php if (\app\models\Access::checkAccess('user-prize/index')) { ?>
+                        <li class="<?= $cont == 'works' && in_array($act, [ 'index', 'update', 'view' ]) ? 'active' : '' ?>">
+                            <?= Html::a('<span class="hide-menu">' . Yii::t('app_admin', 'List') . '</span>',
+                                [ 'user-prize/index' ]
+                            ) ?>
+                        </li>
+                    <?php } ?>
+                    <?php if (\app\models\Access::checkAccess('user-prize/create')) { ?>
+                        <li class="<?= $cont == 'works' && in_array($act, [ 'create' ]) ? 'active' : '' ?>">
+                            <?= Html::a('<span class="hide-menu">' . Yii::t('app_admin', 'Create') . '</span>',
+                                [ 'user-prize/create' ]
+                            ) ?>
+                        </li>
+                    <?php } ?>
+                </ul>
+            </li>
+
+
             <p style="font-size: 14px;padding: 0px 35px 0px 15px;background: #eee;color:#000;"><?= Yii::t('app_admin', 'Game Page') ?></p>
 
 

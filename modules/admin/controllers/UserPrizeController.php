@@ -2,22 +2,25 @@
 
 namespace app\modules\admin\controllers;
 
+use app\models\Lang;
 use app\models\Log;
-use app\models\Subscribe;
+use app\modules\admin\models\UserPrize;
+use app\modules\admin\models\UserPrizeSearch;
 use Yii;
-use app\modules\admin\models\Values;
-use app\modules\admin\models\ValuesSearch;
 use app\components\Controller;
 use yii\web\NotFoundHttpException;
+use yii\web\ForbiddenHttpException;
 use yii\filters\VerbFilter;
 use yii\filters\AccessControl;
 use app\models\Access;
 use yii\helpers\ArrayHelper;
+use app\models\Users;
+use app\models\Prize;
 
 /**
  * NewsController implements the CRUD actions for News model.
  */
-class ValuesController extends Controller
+class UserPrizeController extends Controller
 {
 	public $layout = '@app/modules/admin/layouts/sidebar';
 
@@ -62,7 +65,7 @@ class ValuesController extends Controller
 			$keys = (isset($_POST['keys']))?$_POST['keys']:[];
 			if (count($keys)) {
 				foreach ($keys as $k => $v) {
-					if (($model = Values::findOne($v)) !== null) {
+					if (($model = UserPrize::findOne($v)) !== null) {
 						$model->delete();
 					}
 				}
@@ -70,8 +73,10 @@ class ValuesController extends Controller
 			}
 		}
 		
-        $searchModel = new ValuesSearch();
+        $searchModel = new UserPrizeSearch();
+        
         $dataProvider = $searchModel->search(Yii::$app->request->queryParams);
+        
 
         return $this->render('index', [
             'searchModel' => $searchModel,
@@ -80,7 +85,7 @@ class ValuesController extends Controller
     }
 
     /**
-     * Displays a single News model.
+     * Displays a single UserPrize model.
      * @param integer $id
      * @return mixed
      */
@@ -92,41 +97,47 @@ class ValuesController extends Controller
     }
 
     /**
-     * Creates a new News model.
+     * Creates a new Prize model.
      * If creation is successful, the browser will be redirected to the 'view' page.
      * @return mixed
      */
     public function actionCreate()
     {
-        $model = new Values();
+        $model = new UserPrize();
         if ($model->load(Yii::$app->request->post())) {
-            $model->created_by = Yii::$app->user->identity->id;
+//            echo'<pre>';var_dump($model); die;
+//            echo'<pre>'; var_dump(Lang::getCurrent()->local); die;
+//            $model->created_by = Yii::$app->user->identity->id;
             $model->save();
             $log = new Log();
-            $log::createRow('Games', $model->title, 'Create', $model->id);
-            $subscribes = Subscribe::find()->all();
-            foreach ($subscribes as $subscribe) {
-                Yii::$app->language = $subscribe->locale;
-                $message = \Yii::$app->mailer->compose('message', ['data' => $model, 'url' => 'post']);
-                $message->setFrom( 'ungames.eu@gmail.com' );
-                $message->setSubject( Yii::t('app', 'На сайте UN Games вышла новая игра') );
-                $message->setTo( $subscribe->email );
-                $message->send();
-            }
+            $log::createRow('UserPrize', $model->name, 'Create', $model->id);
+            /////////////////////////////////// Send email
+//            $subscribes = Subscribe::find()->select('email')->asArray()->column();
+//            $message = \Yii::$app->mailer->compose('message', ['data' => $model, 'url' => 'news']);
+//            $message->setFrom( 'ungames.eu@gmail.com' );
+//            $message->setSubject( 'UN games new news' );
+//            $message->setTo( $subscribes );
+//            $message->send();
+//            if ( ) {
+//
+//            }
+
+            ///
             return $this->redirect(['index']);
+
         } else {
-
-            // - get category list
-//            $model->categories_all = $model->categories_all = Category::getSortableArrayTree();
-
+            $users = ArrayHelper::map(Users::find()->where(['status' => 1])->orderBy('email')->all(), 'id', 'email');
+            $prizes = ArrayHelper::map(Prize::find()->where(['status' => 1])->orderBy('name')->all(), 'id', 'name');
             return $this->render('create', [
                 'model' => $model,
+                'users' => $users,
+                'prizes' => $prizes
             ]);
         }
     }
 
     /**
-     * Updates an existing News model.
+     * Updates an existing UserPrize model.
      * If update is successful, the browser will be redirected to the 'view' page.
      * @param integer $id
      * @return mixed
@@ -137,19 +148,23 @@ class ValuesController extends Controller
 
         if ($model->load(Yii::$app->request->post()) && $model->save()) {
             $log = new Log();
-            $log::createRow('Games', $model->title, 'Update', $model->id);
+            $log::createRow('UserPrize', $model->name, 'Update', $model->id);
 			Yii::$app->getSession()->setFlash('success', 'Изменения сохранены');
             return $this->redirect(['update', 'id' => $model->id]);
 
         } else {
+            $users = ArrayHelper::map(Users::find()->where(['status' => 1])->orderBy('email')->all(), 'id', 'email');
+            $prizes = ArrayHelper::map(Prize::find()->where(['status' => 1])->orderBy('name')->all(), 'id', 'name');
             return $this->render('update', [
                 'model' => $model,
+                'users' => $users,
+                'prizes' => $prizes
             ]);
         }
     }
 
     /**
-     * Deletes an existing News model.
+     * Deletes an existing UserPrize model.
      * If deletion is successful, the browser will be redirected to the 'index' page.
      * @param integer $id
      * @return mixed
@@ -158,7 +173,7 @@ class ValuesController extends Controller
     {
         $model = $this->findModel($id);
         $log = new Log();
-        $log::createRow('Games', $model->title, 'Delete', $model->id);
+        $log::createRow('Prize', $model->name, 'Delete', $model->id);
         $model->delete();
 
         return $this->redirect(['index']);
@@ -168,15 +183,15 @@ class ValuesController extends Controller
      * Finds the News model based on its primary key value.
      * If the model is not found, a 404 HTTP exception will be thrown.
      * @param integer $id
-     * @return Values the loaded model
+     * @return UserPrize the loaded model
      * @throws NotFoundHttpException if the model cannot be found
      */
     protected function findModel($id, $ml = true)
     {
         if ($ml) {
-            $model = Values::find()->where('id = :id', [':id' => $id])->multilingual()->one();
+            $model = UserPrize::find()->where('id = :id', [':id' => $id])->multilingual()->one();
         } else {
-            $model = Values::findOne($id);
+            $model = UserPrize::findOne($id);
         }
 
         if ($model !== null) {

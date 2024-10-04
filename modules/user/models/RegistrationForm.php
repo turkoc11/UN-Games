@@ -17,6 +17,11 @@ class RegistrationForm extends Model
     public $phone;
     public $nick_name;
     public $password;
+    public $first_name;
+    public $last_name;
+    public $gender;
+    public $language_id;
+    public $dateofbirth;
     public $passwordConfirm;   
     public $sms_code;
     // public $reCAPTCHA;
@@ -29,18 +34,19 @@ class RegistrationForm extends Model
     public function rules()
     {
         $rules = [
-            [['email',  'password', 'passwordConfirm'], 'required'],
+            [['email',  'phone', 'first_name', 'last_name','password', 'passwordConfirm'], 'required'],
             ['nick_name', 'validateName'], 
 //            [['sms_code'], 'required', 'message' => Yii::t('app', "SMS код було вiдправлено на ваш номер телефона")],
-//            [['sms_code'], 'string', 'max' => 4],
+            [['language_id', 'gender'], 'integer'],
             [['email', 'email'], 'validateEmail'],
-//            ['sms_code', 'validateCode'],
-            ['password', 'validatePassword'],
+            [['phone'], 'validatePhone'],
+            ['dateofbirth', 'string'],
+//            ['password', 'validatePassword'],
             ['password', 'string', 'min' => 6],
             ['passwordConfirm', 'compare', 'compareAttribute' => 'password', 'message' => Yii::t('app', "Не совпадает со значением поля 'Пароль'")],
-            [['nick_name'], 'string', 'max' => 100],
+            [['first_name', 'last_name'], 'string', 'max' => 100],
             
-//            [['phone'], 'string', 'min' => 11, 'max' => 14],
+            [['phone'], 'string', 'min' => 11, 'max' => 14],
         ];
 
         // if (\Yii::$app->params['useCaptcha'] && $this->useCaptcha) {
@@ -55,11 +61,11 @@ class RegistrationForm extends Model
         // var_dump(preg_match($pattern, $this->phone));
         // die();
         if (!preg_match($pattern, $this->phone)) {
-            $this->addError($attribute, Yii::t( 'app','Номер телефона повинен містити 11 цифр а перед ними повинен стояти "+"'));
+            $this->addError($attribute, Yii::t( 'app','Номер телефона должен вмещять 11 цифр а перед ними должен стоять "+"'));
         }
         $model = Users::find()->andWhere(['phone' => $this->phone])->exists();
         if ($model) {
-            $this->addError($attribute, Yii::t( 'app','Зазначений телефон вже існує'));
+            $this->addError($attribute, Yii::t( 'app','Номер телефона уже существует'));
         }
     }
 
@@ -110,10 +116,15 @@ class RegistrationForm extends Model
     {
         $label = [
            
-            'phone' => Yii::t('app', 'Номер телефону'),
+            'phone' => Yii::t('app', 'Номер телефона'),
+            'first_name' => Yii::t('app', 'Имя'),
+            'last_name' => Yii::t('app', 'Фамилия'),
             'email' => Yii::t('app', 'Email'),
             'nick_name' => Yii::t('app', 'Имя'),
             'password' => Yii::t('app', 'Пароль'),
+            'gender'    => Yii::t('app', 'Пол'),
+            'dateofbirth' => Yii::t('app', 'Дата рождения'),
+            'language_id' => Yii::t('app', 'Язык'),
             'passwordConfirm' => Yii::t('app', 'Полтверждение пароля'),
 //            'sms_code' => Yii::t('app', 'Код подтверждения'),
         ];
@@ -140,7 +151,13 @@ class RegistrationForm extends Model
 //            var_dump($this->password); die;
             $user = new UserRegister();
             $user->email = $this->email;
-//            $user->nick_name = $this->nick_name;
+            $user->first_name = $this->first_name;
+            $user->last_name = $this->last_name;
+            $user->phone = $this->phone;
+            $user->gender = $this->gender;
+            $user->dateofbirth = $this->dateofbirth;
+            $user->language_id = $this->language_id;
+
             $user->password_hash = \Yii::$app->security->generatePasswordHash($this->password);
 //            $user->phone = $this->phone;
             $user->status = 1; // ToDo another status

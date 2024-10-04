@@ -36,7 +36,8 @@
         "alexantr/yii2-tinymce": "^1.0",
         "silverback/yii2-sendinblue": "^1.0",
         "ruskid/yii2-stripe": "dev-master",
-        "stripe/stripe-php": "^15.7"
+        "stripe/stripe-php": "^15.7",
+        "kartik-v/yii2-widget-select2": "@dev"
     },
     "require-dev": {
         "yiisoft/yii2-debug": "~2.0.0",

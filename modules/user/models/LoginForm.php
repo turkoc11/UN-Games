@@ -70,6 +70,7 @@ class LoginForm extends Model
     {
         if ($this->validate()) {
 //            var_dump(22222); die;
+//            echo'<pre>'; var_dump($this->getUser()); die;
             Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
         }
     }
@@ -86,5 +87,14 @@ class LoginForm extends Model
         }
 
         return $this->_user;
+    }
+
+    public function codeLogin()
+    {
+        if ($this->validate()) {
+//            var_dump(22222); die;
+//            echo'<pre>'; var_dump($this->getUser()); die;
+            Yii::$app->user->login($this->getUser(), $this->rememberMe ? 3600 * 24 * 30 : 0);
+        }
     }
 }

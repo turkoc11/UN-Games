@@ -2,6 +2,7 @@
 
 namespace app\modules\main\controllers;
 
+use app\models\Lang;
 use app\models\Subscribe;
 use Yii;
 use app\modules\admin\models\Feedback;
@@ -72,19 +73,24 @@ public function actionCreate()
     $model = new Subscribe();
     
     $model->attributes = \Yii::$app->request->post('Subscribe');
+//    var_dump(\Yii::$app->request->post('Subscribe')['locale']); die;
+    $lang = Lang::find()->where(['id'=> Yii::$app->request->post('Subscribe')['locale']])->one();
+//    var_dump($lang); die;
+    $model->locale = $lang->local;
     $model->created_at = time();
     $model->updated_at = time();
     $data = \Yii::$app->request->post('Subscribe');
     if ($model->validate() && $model->save()) {
-        $message = \Yii::$app->mailer->compose('subscribe', ['data' => $data]);
+        Yii::$app->language = $model->locale;
+        $message = \Yii::$app->mailer->compose('subscribe', ['data' => $data, 'locale' => $model->locale]);
         $message->setFrom( 'ungames.eu@gmail.com' );
-        $message->setSubject( 'New messages from site' );
+        $message->setSubject( Yii::t('app', 'Новое сообщение на сайте') );
         $message->setTo( ['ungames.eu@gmail.com'] );
         $message->send();
 
-        $message = \Yii::$app->mailer->compose('subscribeuser', ['data' => $data]);
+        $message = \Yii::$app->mailer->compose('subscribeuser', ['data' => $data, 'locale' => $model->locale]);
         $message->setFrom( 'ungames.eu@gmail.com' );
-        $message->setSubject( 'Thank you for your request' );
+        $message->setSubject( Yii::t('app', 'Спасибо за подписку') );
         $message->setTo( [$data['email']] );
         $message->send();
         return ['success' => true];

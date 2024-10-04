@@ -91,6 +91,7 @@ class Lang extends \yii\db\ActiveRecord
 
     static function getCurrent()
     {
+//        self::$current = null;
         if (self::$current === null) {
             self::$current = self::getDefaultLang();
         }
@@ -114,6 +115,16 @@ class Lang extends \yii\db\ActiveRecord
         } else {
             $list = self::find()->all();
         }
+        return $list;
+    }
+
+    static function getLangsList()
+    {
+
+
+        $list = ArrayHelper::map(self::find()->all(), 'id', 'name');
+//        var_dump($list); die;
+
         return $list;
     }
 

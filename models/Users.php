@@ -51,6 +51,10 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
 {
 
     public $locale = 'ru';
+    public const GENDER_WOMAN              = 1;
+    public const GENDER_MAN                = 2;
+    public const GENDER_ANOTHER            = 3;
+    public const GENDER_EMPTY              = 0;
     /**
      * @var string
      */
@@ -557,6 +561,16 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     public function setPasswordHash($password)
     {
         $this->password = Yii::$app->security->generatePasswordHash($password);
+    }
+
+    public static function genderList(): array
+    {
+        return [
+            self::GENDER_WOMAN              => Yii::t('app_model', 'Woman'),
+            self::GENDER_MAN                => Yii::t('app_model', 'Man'),
+            self::GENDER_ANOTHER            => Yii::t('app_model', 'Child'),
+//            self::GENDER_EMPTY              => Yii::t('app_model', 'Empty'),
+        ];
     }
 
 }

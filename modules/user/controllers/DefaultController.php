@@ -116,12 +116,12 @@ class DefaultController extends Controller
         if ($login->load(Yii::$app->request->post())) {
 
             if (Yii::$app->request->isAjax) {
-//                echo '<pre>'; var_dump(ActiveForm::validate($login)); die;
-                Yii::$app->response->format = Response::FORMAT_JSON;
+
+               Yii::$app->response->format = Response::FORMAT_JSON;
 
                 return ActiveForm::validate($login);
             } else {
-//                var_dump(1111111); die;
+//                var_dump($login->login()); die;
                 $login->login();
 
                 if (Access::can('super_admin')) return $this->redirect([ '/admin/default/index' ]);

@@ -110,12 +110,16 @@ class NewsController extends Controller
             $log = new Log();
             $log::createRow('News', $model->title, 'Create', $model->id);
             /////////////////////////////////// Send email
-            $subscribes = Subscribe::find()->select('email')->asArray()->column();
-            $message = \Yii::$app->mailer->compose('message', ['data' => $model, 'url' => 'news']);
-            $message->setFrom( 'ungames.eu@gmail.com' );
-            $message->setSubject( 'UN games new news' );
-            $message->setTo( $subscribes );
-            $message->send();
+            $subscribes = Subscribe::find()->all();
+            foreach ($subscribes as $subscribe) {
+                Yii::$app->language = $subscribe->locale;
+                $message = \Yii::$app->mailer->compose('content', ['data' => $model, 'url' => 'news']);
+                $message->setFrom( 'ungames.eu@gmail.com' );
+                $message->setSubject( Yii::t('app', 'На сайте UN Games новая новость') );
+                $message->setTo( $subscribe->email );
+                $message->send();
+            }
+
 //            if ( ) {
 //
 //            }

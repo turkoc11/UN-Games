@@ -38,7 +38,7 @@ class Subscribe extends \yii\db\ActiveRecord
     public function rules()
     {
         return [
-            [[ 'email' ], 'required'],
+            [[ 'email', 'locale' ], 'required'],
 	    [['email'], 'unique'],	
             [['id', 'created_at', 'updated_at'], 'integer'],
             [['email'], 'email'],
@@ -53,6 +53,7 @@ class Subscribe extends \yii\db\ActiveRecord
         return [
             'id' => Yii::t('app_model', 'ID'),
             'email' =>  Yii::t('app_model', 'Email'),
+            'locale' => Yii::t('app_model', 'Locale')
         ];
     }
 

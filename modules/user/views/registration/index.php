@@ -30,8 +30,17 @@ $this->title = Yii::t('app', 'Зареєструватися');
                     <div class="col-md-6 form-registration-container">                       
 
                         <?= $form->field($model, 'email')->textInput(['autofocus' => true]) ?>
+                        <?= $form->field($model, 'first_name')
+                            ->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'last_name')
+                            ->textInput(['maxlength' => true]) ?>
+                        <?= $form->field($model, 'gender')->dropDownList(\app\models\Users::genderList(), ['class' => ' select2']) ?>
+                        <?= $form->field($model, 'language_id')->dropDownList(\app\models\Lang::getLangsList(), ['data-toggle' => 'tooltip','class' => 'select2'])->label(Yii::t('app','Выберите язык для почтовых тэмплейтов')) ?>
+                        <?= $form->field($model, 'dateofbirth')
+                            ->textInput(['maxlength' => true, 'class'=>'form-control datemask', 'placeholder' => 'DD/MM/YYYY']) ?>
 
-<!--                        --><?php //= $form->field($model, 'phone')->textInput(['type' => 'tel', 'autofocus' => true]) ?>
+
+                        <?= $form->field($model, 'phone')->textInput(['type' => 'tel', 'autofocus' => true]) ?>
 
                         <?= $form->field($model, 'password')->passwordInput() ?>
 

@@ -31,7 +31,7 @@ $settings = $this->params['headerContent']['settings'];
                                                  '])
                         ->textInput();
                     ?>
-
+                    <?= $form->field($model, 'locale')->dropDownList(\app\models\Lang::getLangsList(), ['data-toggle' => 'tooltip','class' => ' select2'])->label(Yii::t('app','Выберите язык для почтовых тэмплейтов')) ?>
                     <span class="form-field__line"></span>
                     <span class='error-email form-span' style="display:none"></span>
 
@@ -39,6 +39,7 @@ $settings = $this->params['headerContent']['settings'];
                         <?= Html::submitButton(\Yii::t('app', 'Send'),
                             [ 'class' => 'btn-big' ]) ?>
                     </div>
+                    <?= $form->field($model, 'locale')->dropDownList(\app\models\Lang::getLangsList(), ['data-toggle' => 'tooltip','class' => 'select2'])->label(Yii::t('app','Выберите язык для почтовых тэмплейтов')) ?>
                     <?php ActiveForm::end(); ?>
                 </div>
             </div>

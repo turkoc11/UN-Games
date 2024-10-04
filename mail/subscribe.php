@@ -3,7 +3,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Темплейт письма с контактов</title>
+    <title><?php echo Yii::t('app', 'Темплейт письма с контактов')?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
     <link rel="stylesheet" href="../public/styles.css">
 </head>
@@ -16,7 +16,7 @@
                         <!-- Body -->
                         <tr>
                             <td style="padding: 40px; text-align: left; font-size: 16px; line-height: 1.6;">
-                                На сайте UN Games новая подписка
+                                <?php echo Yii::t('app', 'На сайте UN Games новая подписка')?>
                             </td>
                         </tr>
                         

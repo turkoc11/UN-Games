@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Темплейт письма с контактов</title>
+    <title><?php echo Yii::t('app', 'Темплейт письма с контактов')?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
     <link rel="stylesheet" href="../public/styles.css">
 </head>
@@ -15,9 +15,9 @@
                     <table  width="600" border="0" cellspacing="0" cellpadding="0" style="border-collapse: collapse; border: 1px solid #cccccc;">
                         <tr>
                             <td style="padding: 40px; text-align: left; font-size: 16px; line-height: 1.6;">
-                            Новое сообщение на сайте UN games
+                                <?php echo Yii::t('app', 'Новое сообщение на сайте UN games')?>
                             <br>
-                                Контент письма:
+                                <?php echo Yii::t('app', 'Контент письма:')?>
                             </td>
                         </tr>
                         

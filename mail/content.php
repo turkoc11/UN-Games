@@ -1,9 +1,9 @@
 <!DOCTYPE html>
-<html lang="en">
+<html >
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Темплейт письма с контактов</title>
+    <title><?php echo Yii::t('app', 'Темплейт письма с контактов')?></title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/normalize.css">
     <link rel="stylesheet" href="../public/styles.css">
 </head>
@@ -16,15 +16,16 @@
                         <!-- Body -->
                         <tr>
                             <td style="padding: 40px; text-align: left; font-size: 16px; line-height: 1.6;">
-                            Добрый день!<br>
-                            Уведомляем вас о новом контенте на сайте UN Games
+                                <?php echo Yii::t('app', 'Добрый день!')?><br>
+                                <?php echo Yii::t('app', 'Уведомляем вас о новом контенте на сайте UN Games')?>
                             <br>
                             </td>
                         </tr>
                         
                         <tr>
                             <td style="padding: 20px 40px; text-align: left; font-size: 16px; line-height: 1.6;">
-                                Посетите <a href="https://ungames.company/"<?php echo $url .'/'. $data->id ?> target="_blank" style=" text-decoration: none; font-weight: bold;">Данную страницу,</a> если вам интересно!
+                                <?php echo Yii::t('app', 'Посетите')?> <a href="https://ungames.company/"<?php echo $url .'/'. $data->id ?> target="_blank" style=" text-decoration: none; font-weight: bold;"><?php echo Yii::t('app', 'Данную страницу,')?></a>
+                                <?php echo Yii::t('app', 'если вам интересно!')?>
                             </td>
                         </tr>
                         <!-- Call to action Button -->
@@ -34,7 +35,7 @@
                                 <table cellspacing="0" cellpadding="0" >
                                     <tr>
                                         <td align="center" >
-                                          С уважением, команда <a href="ссылка на сайт" target="_blank" style=" text-decoration: none; font-weight: bold;">UN Games  </a>
+                                            <?php echo Yii::t('app', 'С уважением, команда')?> <a href="https://ungames.company/" target="_blank" style=" text-decoration: none; font-weight: bold;">UN Games  </a>
                                         </td>
                                     </tr>
                                 </table>

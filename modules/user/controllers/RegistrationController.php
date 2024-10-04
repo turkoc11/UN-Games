@@ -84,7 +84,8 @@ class RegistrationController extends Controller
     {
         $model = new RegistrationForm();
         // $model->useCaptcha = true;
-        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {            
+        if (Yii::$app->request->isPost && $model->load(Yii::$app->request->post())) {
+//            echo '<pre>';var_dump($model->validate()); die;
             return $model->save() ? $this->redirect([ '/' ]) : 'error';
         }
         

@@ -109,7 +109,7 @@ public function actionCreate()
     $model->updated_at = time();
 
     $data = \Yii::$app->request->post('Feedback');
-
+//var_dump(Yii::$app->language); die;
     if ($model->validate() && $model->save()) {
         $message = \Yii::$app->mailer->compose('feedback', ['data' => $data]);
         $message->setFrom( 'ungames.eu@gmail.com' );

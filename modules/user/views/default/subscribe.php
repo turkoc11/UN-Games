@@ -26,6 +26,7 @@ $settings = $this->params['headerContent']['settings'];
                     'enableAjaxValidation' => true,
                 ]); ?>
                 <div class="form-field">
+
                     <?= $form->field($model, 'email', [ 'template' => '<label for="email"  data-wow-duration="1s" data-wow-delay="0.1s">Email *</label> {hint}{error}
                                                  <input type="text" id="Email" placeholder="email" name="Subscribe[email]" aria-required="true"  data-constraints="@Required @JustLetters"/>
                                                  '])
@@ -33,6 +34,7 @@ $settings = $this->params['headerContent']['settings'];
                     ?>
                     <!--                        <label for="email">Email *</label>-->
                     <!--                        <input id="email" name="email" required type="text"/>-->
+
                     <span class="form-field__line"></span>
                     <span class='error-email form-span' style="display:none"></span>
 
@@ -40,6 +42,7 @@ $settings = $this->params['headerContent']['settings'];
                         <?= Html::submitButton(\Yii::t('app', 'Send'),
                             [ 'class' => 'btn-big' ]) ?>
                     </div>
+                    <?= $form->field($model, 'locale')->dropDownList(\app\models\Lang::getLangsList(), ['data-toggle' => 'tooltip','class' => 'select2'])->label(Yii::t('app','Выберите язык для почтовых тэмплейтов')) ?>
                     <?php ActiveForm::end(); ?>
                 </div>
             </div>
