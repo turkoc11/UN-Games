@@ -41,18 +41,150 @@
                 <h3 class="profile-elem-name">
                     Your profile
                 </h3>
+                  <div class="profile-head-container">
+                     <img src="" alt="" class="profile-head-avatar">
+                     <div class="profile-head-text">
+                        <div class="profile-head-static-text">User nickname</div>
+                        <div class="profile-head-nickname-container">
+                           <div class="profile-head-nickname">
+                              Никнейм юзера
+                           </div>
+                           <button class="change-nickname">
+                              <svg fill="#000000" height="18px" width="18px" version="1.1" id="Capa_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+                                    viewBox="0 0 306.637 306.637" xml:space="preserve">
+                                 <g>
+                                    <g>
+                                       <path d="M12.809,238.52L0,306.637l68.118-12.809l184.277-184.277l-55.309-55.309L12.809,238.52z M60.79,279.943l-41.992,7.896
+                                          l7.896-41.992L197.086,75.455l34.096,34.096L60.79,279.943z"/>
+                                       <path d="M251.329,0l-41.507,41.507l55.308,55.308l41.507-41.507L251.329,0z M231.035,41.507l20.294-20.294l34.095,34.095
+                                          L265.13,75.602L231.035,41.507z"/>
+                                    </g>
+                                 </g>
+                              </svg>
+                           </button>
+                        </div>
+                     </div>
+                  </div>
+            </div>
+            <!-- Форма для смены ника-->
+            <form action="" class="form-change-nickname">
+               <h1 class="profile-head-text">Change user nickname (попап)</h1>
+               <label for="change-nickname" class="change-nickname-label">New username</label>
+               <input type="text" placeholder="type new username" class="change-nickname-input" name="change-nickname">
+               <input type="button" class="change-nickname-accept" value="submit">
+            </form>
+            <div class="profile-elems">
+               <div class="personal-data-head-container">
+                  <h3 class="profile-elem-name">
+                     Personal data
+                 </h3>
+                 <button class="change-personal-data">Change</button>
+               </div>
+
+                <div class="personal-data-container">
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">User email</span>
+                     <span class="personal-data-dynamic-text" id="data-email">test@email.com</span>
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Name</span>
+                     <span class="personal-data-dynamic-text" id="data-name">Jone Doe</span>
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Gender</span>
+                     <span class="personal-data-dynamic-text" id="data-gender">Male</span>
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Language</span>
+                     <span class="personal-data-dynamic-text" id="data-language">English</span>
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Date of birth</span>
+                     <span class="personal-data-dynamic-text" id="data-birth">01.01.1999</span>
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Phone number</span>
+                     <span class="personal-data-dynamic-text" id="data-phone">+38012345678</span>
+                  </div>
+                </div>
+                <!--Форма для смены данных-->
+                <form action="" class="personal-data-form">
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Email</span>
+                     <input type="email" placeholder="email" class="personal-data-form-input">
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Name</span>
+                     <input type="text" placeholder="Name" class="personal-data-form-input">
+                     <input type="text" placeholder="Surname" class="personal-data-form-input">
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Gender</span>
+                     <input type="text" placeholder="Gender" class="personal-data-form-input">
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Language</span>
+                     <select name="" id="">
+                        <option>English</option>
+                        <option>Russian</option>
+                     </select>
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Date of birth</span>
+                     <input type="date" placeholder="Date" class="personal-data-form-input">
+                  </div>
+                  <div class="personal-data-elem">
+                     <span class="personal-data-static-text">Phone number</span>
+                     <input type="text" placeholder="Phone number" class="personal-data-form-input">
+                  </div>
+                  <div class="button-form-container">
+                     <div class="decline-changes">Decline</div>
+                     <input type="button" value="Submit" class="send-personal-data">
+                  </div>
+                </form>
             </div>
             <div class="profile-elems">
-                <h3 class="profile-elem-name">
-                    Personal data
-                </h3>
+               <div class="personal-data-head-container">
+                  <h3 class="profile-elem-name">
+                     Delete account
+                 </h3>
+                 <button class="delete-account-button">Delete</button>
+               </div>
             </div>
-            <div class="profile-elems">
-                <h3 class="profile-elem-name">
-                    Delete account
-                </h3>
-            </div>
+
+            <form action="" class="delete-account-form">
+               <h1 class="profile-head-text">Delete account (попап)</h1>
+               <p class="delete-account-text">
+                  Закрыв учетную запись UNgames, вы сможете отменить свое решение в течение 30 дней.
+                  После этого действие вашей учетной записи UNgames будет прекращено, и вы окончательно потеряете все настройки, контент и данные.
+               </p>
+               <div class="checkbox-container">
+                  <input type="checkbox" name="accept-delete" id="">
+                  <span class="delete-account-text">Я подтверждаю удаление аккаунта</span>
+               </div>
+               <input type="submit" class='form-button-delete-account' value="Delete my account">
+            </form>
         </div>
     </div>
 </body>
 </html>
+
+
+
+<script>
+   let buttonDecline = document.querySelector('.decline-changes')
+   let buttonChange = document.querySelector('.change-personal-data')
+   let personalDataContainer= document.querySelector('.personal-data-container')
+   let personalDataForm = document.querySelector('.personal-data-form')
+
+   buttonChange.addEventListener('click',function(){
+      buttonChange.classList.toggle('active')
+      personalDataContainer.classList.toggle('active');
+      personalDataForm.classList.toggle('active')
+   })
+   buttonDecline.addEventListener('click',function(){
+      buttonChange.classList.toggle('active')
+      personalDataContainer.classList.toggle('active');
+      personalDataForm.classList.toggle('active')
+   })
+</script>
