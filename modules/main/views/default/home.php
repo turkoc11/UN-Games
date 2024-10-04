@@ -128,8 +128,8 @@ if($url[1] == 'en' || $url[1] == 'ru'){
             <img src="/image-gallery/image-project-section-2.png" alt="" class="portfolio-image">
             <img src="/image-gallery/image-project-section-3.png" alt="" class="portfolio-image">
             <img src="/image-gallery/image-project-section-4.png" alt="" class="portfolio-image">
-            <img src="/image-gallery/image-project-section-5.png" alt="" class="portfolio-image">
-            <img src="/image-gallery/image-project-section-6.png" alt="" class="portfolio-image">
+          |<!--  <img src="/image-gallery/image-project-section-5.png" alt="" class="portfolio-image"> -->
+           <!-- <img src="/image-gallery/image-project-section-6.png" alt="" class="portfolio-image"> -->
         </div>
 
         <a href="<?php echo $lang ?>/services" class="portfolio-link">
