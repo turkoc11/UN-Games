@@ -7,7 +7,7 @@ return [
     'class' => 'app\components\LangUrlManager',
     'rules' => [
 
-        '<_a:(login|logout|confirm-email|password-reset)>' => 'user/default/<_a>',
+        '<_a:(login|logout|confirm-email|password-reset|update-profile|update-nick-name|delete-account|upload-image)>' => 'user/default/<_a>',
         // 'site' => 'site/default/index',
         'registration' => 'user/registration/index',
         'registration-validate' => 'user/registration/validate',

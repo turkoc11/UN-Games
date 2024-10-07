@@ -19,12 +19,18 @@ use app\modules\user\models\ConfirmEmailForm;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\PasswordResetRequestForm;
 use app\modules\user\models\ResetPasswordForm;
+use app\modules\user\models\UpdateNickNameForm;
+use app\modules\user\models\UpdateProfileForm;
+use app\modules\user\models\UploadForm;
+use app\modules\user\models\UserDeletedForm;
+use app\modules\user\models\Users;
 use Yii;
 use app\components\Controller;
 use yii\base\InvalidParamException;
 use yii\filters\AccessControl;
 use yii\web\Response;
 use yii\widgets\ActiveForm;
+use yii\web\UploadedFile;
 
 /**
  * Default controller for the `user` module
@@ -121,6 +127,16 @@ class DefaultController extends Controller
 
                 return ActiveForm::validate($login);
             } else {
+
+                $user = \app\models\Users::find()->where(['email' => $login->email])->one();
+//                echo '<pre>'; var_dump($user); die;
+                if($user && !empty($user->deleted_at)){
+                    $date = time() - $user->deleted_at;
+                    if($date >= 2592000) {
+                        return $this->render('delete');
+                    }
+
+                }
 //                var_dump($login->login()); die;
                 $login->login();
 
@@ -146,6 +162,101 @@ class DefaultController extends Controller
 
 
         return $this->render('login-form', [ 'loginForm' => $login, 'recoverForm' => $recover ]);
+    }
+
+    public function actionUpdateProfile()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+
+        $updateProfile = new UpdateProfileForm();
+        if ($updateProfile->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isAjax) {
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($updateProfile);
+            } else {
+                $updateProfile->save();
+            }
+
+            return $this->goBack('profile');
+        }
+    }
+
+    public function actionUpdateNickName()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+
+        $updateNickName = new UpdateNickNameForm();
+        if ($updateNickName->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isAjax) {
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($updateNickName);
+            } else {
+                $updateNickName->save();
+            }
+
+            return $this->goBack('profile');
+        }
+    }
+
+    public function actionDeleteAccount()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+//        var_dump(123123123); die;
+
+        $userDeleted = new UserDeletedForm();
+        if ($userDeleted->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isAjax) {
+//                var_dump();
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($userDeleted);
+            } else {
+                $userDeleted->save();
+            }
+
+            return $this->goBack('profile');
+        }
+    }
+
+    public function actionUploadImage()
+    {
+        $model = new UploadForm();
+        $user = Users::find()->where(['id' => Yii::$app->user->id])->one();
+        if (Yii::$app->request->isPost) {
+            $model->image = UploadedFile::getInstance($model, 'image');
+//            var_dump($model->image); die;
+
+            if ($model->image && $model->validate()) {
+                $path = 'images/user/' . $model->image->baseName . '.' . $model->image->extension;
+                if($model->image->saveAs($path)){
+                    $user->image = $path;
+                    $user->save(false);
+                }
+
+            }
+        }
+
+        return $this->goBack('profile');
     }
 
     /**

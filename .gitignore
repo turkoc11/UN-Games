@@ -24,6 +24,7 @@ vendor/
 target/
 dist/
 common/db/*.*
+images/user/
 
 # JetBrains IDE
 .idea/

@@ -7,6 +7,10 @@ use app\models\Access;
 use app\models\Subscribe;
 use app\models\Transactions;
 use app\models\Users;
+use app\modules\user\models\UpdateNickNameForm;
+use app\modules\user\models\UpdateProfileForm;
+use app\modules\user\models\UploadForm;
+use app\modules\user\models\UserDeletedForm;
 use Yii;
 use yii\data\ActiveDataProvider;
 use yii\filters\AccessControl;
@@ -128,8 +132,14 @@ class DefaultController extends Controller
 
                 ]);
             }
+            $user = \app\modules\user\models\Users::find()->where(['id' => Yii::$app->user->id])->one();
             return $this->render($link, [
                 'model' => $model,
+                'updateProfile' => new UpdateProfileForm(),
+                'updateNickName' => new UpdateNickNameForm(),
+                'userDeleted'   =>  new UserDeletedForm(),
+                'uploadImage' => new UploadForm(),
+                'user' => $user,
 
             ]);
 
