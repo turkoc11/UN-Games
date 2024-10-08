@@ -3327,3 +3327,185 @@ progress::after{
    margin-top: 40px;
    float: right;
 }
+
+.password-change-text{
+    font-size: 18px;
+    line-height: 20px;
+    margin-top: 30px;
+    color: #252d3a;
+ }
+ 
+ .password-change-email{
+    font-size: 20px;
+    line-height: 24px;
+    color: #373737;
+    font-weight: 600;
+    margin-top: 20px;
+ }
+ 
+ .password-change-button-container{
+    margin-top: 30px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 15px;
+ }
+ 
+ .password-change-decline{
+    width: 168px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #0088cc;
+    font-size: 18px;
+    color: #0088cc;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+ 
+ .password-change-send{
+    width: 168px;
+    text-align: center;
+    padding: 10px;
+    background-color: #0088cc;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 10px;
+ }
+ 
+ .two-step-text{
+    font-size: 18px;
+    line-height: 24px;
+    margin-top: 20px;
+    color: #000;
+ }
+ 
+ .two-step-container{
+    margin-top: 30px;
+ }
+ 
+ .two-step-text-small{
+    font-size: 20px;
+    color: #6f7587;
+    line-height: 20px;
+ }
+ 
+ .two-step-button-container{
+    margin-top: 15px;
+    display: flex;
+    flex-direction: row;
+    align-items: center;
+    justify-content: start;
+ }
+ 
+ .two-step-button{
+    cursor: pointer;
+    border: 1px solid #7e8499;
+    font-size: 14px;
+    text-align: center;
+    background-color: #aab2cf;
+    color: black;
+    width: 160px;
+    padding: 3px;
+ }
+ 
+ .email-form-text{
+    font-size: 18px;
+    color: #000;
+ }
+ 
+ .email-password{
+    margin-top: 20px;
+    border: 1px solid #7e8499;
+    font-size: 18px;
+    padding-left: 5px;
+ }
+ 
+ .email-password-button-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+ }
+ 
+ .email-password-button{
+    width: 168px;
+    text-align: center;
+    padding: 10px;
+    background-color: #0088cc;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+ 
+ .email-password-decline{
+    width: 168px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #0088cc;
+    font-size: 18px;
+    color: #0088cc;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+ 
+ .phone-form-text{
+    font-size: 18px;
+    color: #000;
+ }
+ 
+ .phone-password{
+    margin-top: 20px;
+    border: 1px solid #7e8499;
+    font-size: 18px;
+    padding-left: 5px;
+ }
+ 
+ .phone-password-button-container{
+    margin-top: 30px;
+    display: flex;
+    flex-direction: row;
+    justify-content: center;
+    align-items: center;
+    gap: 15px;
+ }
+ 
+ .phone-password-button{
+    width: 168px;
+    text-align: center;
+    padding: 10px;
+    background-color: #0088cc;
+    font-size: 18px;
+    color: #fff;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+ 
+ .phone-password-decline{
+    width: 168px;
+    text-align: center;
+    padding: 10px;
+    border: 1px solid #0088cc;
+    font-size: 18px;
+    color: #0088cc;
+    border-radius: 10px;
+    cursor: pointer;
+ }
+ 
+ .two-step-email-container{
+    display: none;
+ }
+ 
+ .two-step-email-container.active{
+    display: block;
+ }
+ 
+ .two-step-phone-container{
+    display: none;
+ }
+ 
+ .two-step-phone-container.active{
+    display: block;
+ }

@@ -4,8 +4,160 @@
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Document</title>
+    <link rel="stylesheet" href="profile-styles.css">
 </head>
 <body>
-    <div class="profile-wrapper"></div>
+    <div class="profile-wrapper">
+        <div class="sidebar-profile">
+            <div class="sidebar-navigation">
+                <a href="" class="sidebar-link">
+                    <img src="" alt="" class="company-logo-sidebar">
+                </a>
+                <a href="" class="sidebar-link">
+                    <img src="" alt="" class="link-icon">
+                    <div class="link-text">Profile information</div>
+                </a>
+                <a href="" class="sidebar-link">
+                    <img src="" alt="" class="link-icon">
+                    <div class="link-text">Security</div>
+                </a>
+                <a href="" class="sidebar-link">
+                    <img src="" alt="" class="link-icon">
+                    <div class="link-text">Privacy</div>
+                </a>
+                <a href="" class="sidebar-link">
+                    <img src="" alt="" class="link-icon">
+                    <div class="link-text">Transactions history</div>
+                </a>
+            </div>
+        </div>
+        <div class="profile-main-wrapper">
+            <h1 class="profile-head-text">
+                Security
+            </h1>
+            <div class="profile-elems">
+                <div class="personal-data-head-container">
+                    <h3 class="profile-elem-name">
+                       Password
+                   </h3>
+                   <button class="change-personal-data">Change</button>
+                 </div>
+            </div>
+            <div class="profile-elems">
+                <h3 class="profile-elem-name">Смена пароля (попап)</h3>
+                <div class="password-change-text">Письмо с ссылкой для изменения пароля будет отправлено на следующий адрес</div>
+                <div class="password-change-email">test@email.com</div>
+                <div class="password-change-button-container">
+                    <div class="password-change-decline">Decline</div>
+                    <button class="password-change-send">Send</button>
+                </div>
+            </div>
+
+            <div class="profile-elems">
+                <div class="personal-data-head-container">
+                    <h3 class="profile-elem-name">
+                        2-step authentication
+                   </h3>
+                   <button class="change-personal-data">Change</button>
+                </div>
+                <div class="two-step-text">
+                    Добавьте дополнительный уровень защиты вашей учетной записи. Каждый раз при авторизации с нового устройства вам будет необходимо вводить код безопасности.
+                </div>
+            </div>
+
+            <div class="profile-elems">
+                <h3 class="profile-elem-name">Подключение двухфакторки (попап)</h3>
+                <div class="two-step-container">
+                    
+                    <h2 class="two-step-text-small">Предпочитаемый способ связи</h2>
+                    <div class="two-step-button-container">
+                        <div class="two-step-button email-two-step">Email</div>
+                        <div class="two-step-button phone-two-step">Phone</div>
+                    </div>
+
+                    <div class="two-step-email-container active">
+                        <div class="email-verification-not-verified">
+                            <h3 class="two-step-text">Ваш код безопасности будет отправлен на следующий электронный адрес:</h3>
+                            <div class="password-change-email">test@email.com</div>
+                            <div class="password-change-button-container">
+                                <button class="password-change-send send-email-verification">Send</button>
+                            </div>
+                        </div>
+                        <div class="email-verification-verified">
+                            <h3 class="two-step-text">Вы уже активировали двухфакторную верификацию по данному email адресу, хотите изменить?</h3>
+                            <div class="password-change-email">test@email.com</div>
+                            <div class="password-change-button-container">
+                                <button class="password-change-send send-email-verification">Send</button>
+                            </div>
+                        </div>
+                        <div class="email-verification-if-phone">
+                            <h3 class="two-step-text">Вы уже активировали двухфакторную верификацию по номеру телефона</h3>
+                        </div>
+                    </div>
+                    <div class="two-step-phone-container">
+                        <div class="phone-verification-not-verified">
+                            <h3 class="two-step-text">Ваш код безопасности будет отправлен на следующий номер телефона:</h3>
+                            <div class="password-change-email">+380123456789</div>
+                            <div class="password-change-button-container">
+                                <button class="password-change-send send-phone-verification">Send</button>
+                            </div>
+                        </div>
+                        <div class="phone-verification-verified">
+                            <h3 class="two-step-text">Вы уже активировали двухфакторную верификацию по данному номеру телефона, хотите изменить?</h3>
+                            <div class="password-change-email">+380123456789</div>
+                            <div class="password-change-button-container">
+                                <button class="password-change-send send-phone-verification">Send</button>
+                            </div>
+                        </div>
+                        <div class="phone-verification-if-email">
+                            <h3 class="two-step-text">Вы уже активировали двухфакторную верификацию по email</h3>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="profile-elems">
+                <h3 class="profile-elem-name">Подключение двухфакторки почты (попап)</h3>
+
+                <form action="" class="email-form-autorization">
+                    <h3 class="email-form-text">Пожалуйста, введите пароль, который вы получили на email</h3>
+                    <input type="password" name="email-password" class="email-password" id="">
+                    <div class="email-password-button-container">
+                        <div class="email-password-decline">Отменить</div>
+                        <input type="submit" value="Подтвердить" class="email-password-button">
+                    </div>
+                </form>
+            </div>
+
+            <div class="profile-elems">
+                <h3 class="profile-elem-name">Подключение двухфакторки телефона (попап)</h3>
+
+                <form action="" class="phone-form-autorization">
+                    <h3 class="phone-form-text">Пожалуйста, введите пароль, который вы получили на свой телефон</h3>
+                    <input type="password" name="phone-password" class="phone-password" id="">
+                    <div class="phone-password-button-container">
+                        <div class="phone-password-decline">Отменить</div>
+                        <input type="submit" value="Подтвердить" class="phone-password-button">
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
 </body>
 </html>
+
+<script>
+    let buttonEmail = document.querySelector('.email-two-step')
+    let buttonPhone = document.querySelector('.phone-two-step')
+    let emailDataContainer= document.querySelector('.two-step-email-container')
+    let phoneDataContainer = document.querySelector('.two-step-phone-container')
+ 
+    buttonEmail.addEventListener('click',function(){
+        emailDataContainer.classList.add('active');
+        phoneDataContainer.classList.remove('active')
+    })
+    buttonPhone.addEventListener('click',function(){
+        emailDataContainer.classList.remove('active');
+       phoneDataContainer.classList.add('active')
+    })
+ </script>
