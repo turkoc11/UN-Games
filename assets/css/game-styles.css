@@ -3509,3 +3509,114 @@ progress::after{
  .two-step-phone-container.active{
     display: block;
  }
+
+ .privacy-text-container{
+   margin-top: 20px;
+   font-size: 18px;
+   line-height: 24px;
+   color: black;
+   display: flex;
+   flex-direction: column;
+   gap: 10px;
+}
+
+.transactions-head-text{
+   font-size: 18px;
+   line-height: 24px;
+   color: black;
+}
+
+.transactions-table{
+   margin-top: 60px;
+   font-size: 24px;
+   color: black;
+   width: 100%;
+   display: none;
+}
+
+.transactions-table-head{
+   color: #6f7587;
+   padding-bottom: 10px;
+   
+   text-align: start;
+}
+
+.transactions-table-head th{
+   text-align: start;
+   padding-bottom: 20px;
+}
+
+.transactions-table-elem td{
+   padding-bottom: 20px;
+}
+
+.transactions-button-container{
+   margin-top: 30px;
+   display: flex;
+   flex-direction: row;
+   gap: 15px;
+   align-items: center;
+}
+
+.transactions-button-table{
+   width: 168px;
+   text-align: center;
+   padding: 10px;
+   border: 1px solid #0088cc;
+   font-size: 18px;
+   color: #0088cc;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.transactions-button-bonuses{
+   width: 168px;
+   text-align: center;
+   padding: 10px;
+   border: 1px solid #0088cc;
+   font-size: 18px;
+   color: #0088cc;
+   border-radius: 10px;
+   cursor: pointer;
+}
+
+.transactions-table.active{
+   display: table;
+}
+
+.transactions-bonuses-information{
+   display: none;
+}
+
+.transactions-bonuses-information.active{
+   display: block;
+}
+
+.bonuses-text{
+   margin-top: 30px;
+   font-size: 18px;
+   color: black;
+   line-height: 24px;
+}
+
+.sum-money{
+   color: #0088cc;
+   font-weight: 600;
+}
+
+.bonuses-bonus{
+   margin-top: 30px;
+   font-size: 18px;
+   color: black;
+   line-height: 24px;
+}
+
+.bonus-current{
+   color: #0088cc;
+   font-weight: 600;
+}
+
+.bonus-next{
+   color: #0088cc;
+   font-weight: 600;
+}
