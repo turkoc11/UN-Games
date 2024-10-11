@@ -484,7 +484,7 @@ class DefaultController extends Controller
 
             $apiInstance = new \SendinBlue\Client\Api\TransactionalSMSApi(
                 new GuzzleHttp\Client(),
-                $config
+//                $config
             );
 
             $sendTransacSms = new \SendinBlue\Client\Model\SendTransacSms();
