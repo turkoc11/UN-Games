@@ -480,7 +480,7 @@ class DefaultController extends Controller
 //            $sendPhoneCode->save();
             // тут отправка смс
             $user = \app\models\Users::find()->where(['id' => Yii::$app->user->identity->id])->one();
-            $config = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
+
 
             $apiInstance = new \SendinBlue\Client\Api\TransactionalSMSApi(
                 new GuzzleHttp\Client(),
