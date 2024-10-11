@@ -1,0 +1,98 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Document</title>
+    <link rel="stylesheet" href="profile-styles.css">
+</head>
+<body>
+    <div class="profile-wrapper">
+      <div class="sidebar-profile">
+         <div class="sidebar-navigation">
+             <a href="" class="sidebar-link">
+                 <img src="" alt="" class="company-logo-sidebar">
+             </a>
+             <a href="" class="sidebar-link">
+                 <img src="" alt="" class="link-icon">
+                 <div class="link-text">Profile information</div>
+             </a>
+             <a href="" class="sidebar-link">
+                 <img src="" alt="" class="link-icon">
+                 <div class="link-text">Security</div>
+             </a>
+             <a href="" class="sidebar-link">
+                 <img src="" alt="" class="link-icon">
+                 <div class="link-text">Privacy</div>
+             </a>
+             <a href="" class="sidebar-link">
+                 <img src="" alt="" class="link-icon">
+                 <div class="link-text">Transactions history</div>
+             </a>
+         </div>
+      </div>
+
+      <div class="profile-main-wrapper">
+         <h1 class="profile-head-text">
+            Транзакции
+         </h1>
+
+         <div class="profile-elems">
+            <div class="transactions-head-text">
+               Здесь можно ознакомиться с историей транзакций (покупками игр), совершенных в UNgames studios, а так-же с бонусами, которые вы получите за вложенную сумму
+            </div>
+            
+            <div class="transactions-button-container">
+               <div class="transactions-button-table">Транзакции</div>
+               <div class="transactions-button-bonuses">Бонусы</div>
+            </div>
+            <table class="transactions-table active">
+               <tr class="transactions-table-head">
+                  <th>Дата</th>
+                  <th>Номер транзации</th>
+                  <th>Сумма</th>
+               </tr>
+
+               <tr class="transactions-table-elem">
+                  <td>01.01.2001</td>
+                  <td>123456</td>
+                  <td>100.87</td>
+               </tr>
+               <tr class="transactions-table-elem">
+                  <td>01.01.2001</td>
+                  <td>123456</td>
+                  <td>100.87</td>
+               </tr>
+               <tr class="transactions-table-elem">
+                  <td>01.01.2001</td>
+                  <td>123456</td>
+                  <td>100.87</td>
+               </tr>
+            </table>
+            
+            <div class="transactions-bonuses-information">
+               <div class="bonuses-text">На данный момент ваша сумма вложений составляет <span class="sum-money">150$</span>. На шкале ниже вы можете узнать, сколько осталось до следующей награды</div>
+               <progress class="progress-bar" max="100" value="15"></progress>
+               <div class="bonuses-bonus">На данный момент ваша награда <span class="bonus-current">КРУЖКА</span>. Ваша следующая награда- <span class="bonus-next">КОФТА</span></div>
+            </div>
+         </div>
+      </div>
+    </div>
+</body>
+</html>
+
+<script>
+   let buttonTransaction = document.querySelector('.transactions-button-table')
+   let buttonBonuses = document.querySelector('.transactions-button-bonuses')
+   let transactionsContainer = document.querySelector('.transactions-table')
+   let bonusesContainer = document.querySelector('.transactions-bonuses-information')
+
+   buttonTransaction.addEventListener('click',function(){
+      transactionsContainer.classList.add('active');
+      bonusesContainer.classList.remove('active')
+   })
+   buttonBonuses.addEventListener('click',function(){
+      transactionsContainer.classList.remove('active');
+      bonusesContainer.classList.add('active')
+   })
+</script>
