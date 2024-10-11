@@ -5,9 +5,11 @@ namespace app\modules\user\controllers;
 use app\models\Access;
 use app\models\Benefits;
 use app\models\Contacts;
-use app\models\Differences;
-use app\models\DubaiSections;
-use app\models\DubaiValues;
+use app\modules\user\models\TwoFactorForm;
+use app\modules\user\models\UnSetTwoFactorForm;
+use http\Exception;
+use GuzzleHttp;
+use app\models\Lang;
 use app\models\News;
 use app\models\Sections;
 use app\models\Settings;
@@ -15,10 +17,15 @@ use app\models\Subscribe;
 use app\models\TextPageFaqs;
 use app\models\Values;
 use app\modules\admin\models\Feedback;
+use app\modules\user\models\ChangePasswordForm;
 use app\modules\user\models\ConfirmEmailForm;
 use app\modules\user\models\LoginForm;
 use app\modules\user\models\PasswordResetRequestForm;
 use app\modules\user\models\ResetPasswordForm;
+use app\modules\user\models\SendChangePasswordForm;
+use app\modules\user\models\SendEmailCodeForm;
+use app\modules\user\models\SendPhoneCodeForm;
+use app\modules\user\models\SetTwoFactorForm;
 use app\modules\user\models\UpdateNickNameForm;
 use app\modules\user\models\UpdateProfileForm;
 use app\modules\user\models\UploadForm;
@@ -117,6 +124,7 @@ class DefaultController extends Controller
 
         $login = new LoginForm();
         $recover = new PasswordResetRequestForm();
+        $twoFactor = new TwoFactorForm();
 
 
         if ($login->load(Yii::$app->request->post())) {
@@ -136,6 +144,13 @@ class DefaultController extends Controller
                         return $this->render('delete');
                     }
 
+                }
+
+                if($user->is_two_factor) {
+                    $result = $this->sendCode($user);
+                    if($result) {
+                        return $this->render('set-code', ['model' => $twoFactor]);
+                    }
                 }
 //                var_dump($login->login()); die;
                 $login->login();
@@ -162,6 +177,79 @@ class DefaultController extends Controller
 
 
         return $this->render('login-form', [ 'loginForm' => $login, 'recoverForm' => $recover ]);
+    }
+
+
+    public function actionSendAuthCode()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (!Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+
+//        $login = new LoginForm();
+//        $recover = new PasswordResetRequestForm();
+        $twoFactor = new TwoFactorForm();
+
+
+        if ($twoFactor->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isAjax) {
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($twoFactor);
+            } else {
+//                var_dump($login->login()); die;
+                $twoFactor->login();
+
+                if (Access::can('super_admin')) return $this->redirect([ '/admin/default/index' ]);
+            }
+
+            return $this->goBack();
+        }
+
+//        $this->view->title = Yii::t('app', 'Sign in');
+//        $this->view->registerMetaTag(
+//            [
+//                'name'    => 'description',
+//                'content' => Yii::t('app', 'We are glad to see you again on our website. Complete a form to sign in.')
+//            ]
+//        );
+//        $this->view->registerMetaTag(
+//            [
+//                'name'    => 'robots',
+//                'content' => 'noindex, nofollow'
+//            ]
+//        );
+
+
+//        return $this->render('login-form', [ 'loginForm' => $login, 'recoverForm' => $recover ]);
+    }
+
+    public function sendCode($user)
+    {
+       if($user->is_email){
+           $code = rand(100000,999999);
+           $user->two_factor_code = $code;
+           $user->save(false);
+           $language = Lang::find()
+               ->where(['id' => $user->language_id])
+               ->one();
+           $newUser = \app\models\Users::find()->where(['two_factor_code' => $code])->one();
+           $message = \Yii::$app->mailer->compose('twofactor', ['data' => $newUser, 'lang' => $language->local]);
+
+           $message->setFrom( 'shishkalovd@gmail.com' );
+//            $message->setFrom( 'ungames.eu@gmail.com' );
+           $message->setSubject( Yii::t('app', 'Код верификации') );
+           $message->setTo( 'shishkalovd@gmail.com' );
+//            $message->setTo( $user->email );
+           $message->send();
+       }else{
+           // отправка смс пока непонятно через кого
+       }
+       return true;
     }
 
     public function actionUpdateProfile()
@@ -219,13 +307,10 @@ class DefaultController extends Controller
         if (Yii::$app->user->isGuest) {
             return $this->redirect([ '/login' ]);
         }
-//        var_dump(123123123); die;
-
         $userDeleted = new UserDeletedForm();
         if ($userDeleted->load(Yii::$app->request->post())) {
 
             if (Yii::$app->request->isAjax) {
-//                var_dump();
 
                 Yii::$app->response->format = Response::FORMAT_JSON;
 
@@ -235,6 +320,214 @@ class DefaultController extends Controller
             }
 
             return $this->goBack('profile');
+        }
+    }
+
+    public function actionChangePassword()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+        if(!Yii::$app->request->get('personal_code')) {
+            return $this->goBack();
+        }
+        $code = Yii::$app->request->get('personal_code');
+
+        $user = \app\models\Users::find()->where(['personal_code' => $code])->one();
+        if($user) {
+            $model = new ChangePasswordForm();
+            $user->personal_code = null;
+            $user->save(false);
+            return $this->render('change-password', [ 'passwordForm' => $model ]);
+
+        }
+
+        return $this->goBack();
+
+    }
+
+    public function actionUpdatePassword()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+
+        $updatePassword = new ChangePasswordForm();
+        if ($updatePassword->load(Yii::$app->request->post())) {
+
+
+            if (Yii::$app->request->isAjax) {
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($updatePassword);
+            } else {
+                $updatePassword->save();
+            }
+
+            return $this->goBack('security');
+        }
+    }
+
+    public function actionSendPasswordLink()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+        $sendChangePassword = new SendChangePasswordForm();
+
+
+            if (Yii::$app->request->isAjax) {
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($sendChangePassword);
+            } else {
+                $sendChangePassword->save();
+                $user = \app\models\Users::find()->where(['id' => Yii::$app->user->identity->id])->one();
+                $language = Lang::find()->where(['id' => $user->language_id])->one();
+                $message = \Yii::$app->mailer->compose('changepassword', ['data' => $user, 'lang' => $language->local]);
+
+                $message->setFrom( 'shishkalovd@gmail.com' );
+                //            $message->setFrom( 'ungames.eu@gmail.com' );
+                $message->setSubject( Yii::t('app', 'На сайте UN Games вышла новая игра') );
+                $message->setTo( 'shishkalovd@gmail.com' );
+                //            $message->setTo( $user->email );
+                $message->send();
+            }
+
+            return $this->goBack('security');
+
+    }
+
+    public function actionSendEmail()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+        $sendEmailCode = new SendEmailCodeForm();
+
+        if (Yii::$app->request->isAjax) {
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+
+            return ActiveForm::validate($sendEmailCode);
+        } else {
+            $sendEmailCode->save();
+            $user = \app\models\Users::find()->where(['id' => Yii::$app->user->identity->id])->one();
+            $language = Lang::find()->where(['id' => $user->language_id])->one();
+            $message = \Yii::$app->mailer->compose('twofactor', ['data' => $user, 'lang' => $language->local]);
+
+            $message->setFrom( 'shishkalovd@gmail.com' );
+//            $message->setFrom( 'ungames.eu@gmail.com' );
+            $message->setSubject( Yii::t('app', 'Код верификации') );
+            $message->setTo( 'shishkalovd@gmail.com' );
+//            $message->setTo( $user->email );
+            $message->send();
+        }
+
+        return $this->goBack('security');
+
+    }
+
+    public function actionUnsetTwoFactor()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+        $unsetTwoFactor = new UnSetTwoFactorForm();
+
+        if (Yii::$app->request->isAjax) {
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+
+            return ActiveForm::validate($unsetTwoFactor);
+        } else {
+            $unsetTwoFactor->save();
+
+        }
+
+        return $this->goBack('security');
+
+    }
+
+    public function actionSendPhone()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+        $sendPhoneCode = new SendPhoneCodeForm();
+
+        if (Yii::$app->request->isAjax) {
+
+            Yii::$app->response->format = Response::FORMAT_JSON;
+
+            return ActiveForm::validate($sendPhoneCode);
+        } else {
+//            var_dump('PHONE'); die;
+//            $sendPhoneCode->save();
+            // тут отправка смс
+            $user = \app\models\Users::find()->where(['id' => Yii::$app->user->identity->id])->one();
+            $config = \SendinBlue\Client\Configuration::getDefaultConfiguration()->setApiKey('api-key', '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');
+
+            $apiInstance = new \SendinBlue\Client\Api\TransactionalSMSApi(
+                new GuzzleHttp\Client(),
+                $config
+            );
+
+            $sendTransacSms = new \SendinBlue\Client\Model\SendTransacSms();
+            $sendTransacSms['sender'] = 'denver';
+            $sendTransacSms['recipient'] = '380983301919';
+            $sendTransacSms['content'] = '234234';
+            $sendTransacSms['type'] = 'transactional';
+//            $sendTransacSms['webUrl'] = 'https://example.com/notifyUrl';
+//            echo '<pre>'; var_dump($sendTransacSms); die;
+
+            try {
+//                $result = $apiInstance->sendTransacSms($sendTransacSms); 7TQPZY3A6FTLBKJPSUQHE9P4
+                echo '<pre>'; var_dump($apiInstance->sendTransacSms($sendTransacSms)); die;
+                print_r($result);
+            } catch (\Exception $e) {
+                echo 'Exception when calling TransactionalSMSApi->sendTransacSms: ', $e->getMessage(), PHP_EOL;
+            }
+        }
+
+        return $this->goBack('security');
+
+    }
+
+    public function actionSendVerifyCode()
+    {
+        $content = $this->getContent();
+        Yii::$app->view->params['headerContent'] = $content;
+        if (Yii::$app->user->isGuest) {
+            return $this->redirect([ '/login' ]);
+        }
+        $verifyCode = new SetTwoFactorForm();
+        if ($verifyCode->load(Yii::$app->request->post())) {
+
+            if (Yii::$app->request->isAjax) {
+
+                Yii::$app->response->format = Response::FORMAT_JSON;
+
+                return ActiveForm::validate($verifyCode);
+            } else {
+                $verifyCode->save();
+            }
+
+            return $this->goBack('security');
         }
     }
 

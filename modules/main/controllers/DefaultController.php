@@ -7,6 +7,11 @@ use app\models\Access;
 use app\models\Subscribe;
 use app\models\Transactions;
 use app\models\Users;
+use app\modules\user\models\SendChangePasswordForm;
+use app\modules\user\models\SendEmailCodeForm;
+use app\modules\user\models\SendPhoneCodeForm;
+use app\modules\user\models\SetTwoFactorForm;
+use app\modules\user\models\UnSetTwoFactorForm;
 use app\modules\user\models\UpdateNickNameForm;
 use app\modules\user\models\UpdateProfileForm;
 use app\modules\user\models\UploadForm;
@@ -139,6 +144,11 @@ class DefaultController extends Controller
                 'updateNickName' => new UpdateNickNameForm(),
                 'userDeleted'   =>  new UserDeletedForm(),
                 'uploadImage' => new UploadForm(),
+                'sendChangePasswordCode' => new SendChangePasswordForm(),
+                'sendEmailCode' => new SendEmailCodeForm(),
+                'sendPhoneCode' => new SendPhoneCodeForm(),
+                'twoFactorForm' =>  new SetTwoFactorForm(),
+                'unSetTwoFactorForm' =>  new UnSetTwoFactorForm(),
                 'user' => $user,
 
             ]);

@@ -366,7 +366,7 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
     public static function findByUsername($nick_name)
     {
 //        return static::find()->where(['LOWER(nick_name)' => strtolower($nick_name)])->one();
-        return static::find()->where(['email' => strtolower($nick_name)])->one();
+        return static::find()->where(['email' => $nick_name])->one();
     }
 
     /**
@@ -502,9 +502,9 @@ class Users extends \yii\db\ActiveRecord implements IdentityInterface
 
     public function beforeSave($insert)
     {
-        if(!$this->personal_code){
-            $this->personal_code = Yii::$app->controller->generateRandomString(16);
-        }
+//        if(!$this->personal_code){
+//            $this->personal_code = Yii::$app->controller->generateRandomString(16);
+//        }
         $this->full_name = $this->first_name . ' ' . $this->last_name;
 //        $this->nick_name = $this->first_name;
         $this->dateofbirth = ($this->dateofbirth)?date('Y-m-d', strtotime(str_replace('/', '-', $this->dateofbirth))):'';

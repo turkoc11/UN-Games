@@ -65,11 +65,11 @@ if(!empty($uroles)) {
             <a href="" class="sidebar-link">
                 <img src="" alt="" class="company-logo-sidebar">
             </a>
-            <a href="" class="sidebar-link">
+            <a href="profile" class="sidebar-link">
                 <img src="" alt="" class="link-icon">
                 <div class="link-text"><?php echo Yii::t('app', 'Profile information')?></div>
             </a>
-            <a href="" class="sidebar-link">
+            <a href="security" class="sidebar-link">
                 <img src="" alt="" class="link-icon">
                 <div class="link-text"><?php echo Yii::t('app', 'Security')?></div>
             </a>
@@ -112,7 +112,7 @@ if(!empty($uroles)) {
                 <input type="submit" value="<?php echo Yii::t('app', 'Submit')?>" class="change-nickname-accept">
 
                 <?php ActiveForm::end() ?>
-                <img src="<?php echo $user->image?>" alt="" class="profile-head-avatar">
+                <img src="/<?php echo $user->image?>" alt="" class="profile-head-avatar">
                 <div class="profile-head-text">
                     <div class="profile-head-static-text"><?php echo Yii::t('app', 'User nickname')?></div>
                     <div class="profile-head-nickname-container">

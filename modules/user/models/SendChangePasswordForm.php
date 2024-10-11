@@ -11,17 +11,9 @@ use app\models\UserRegister;
 use Yii;
 use yii\base\Model;
 
-class UpdateNickNameForm extends Model
+class SendChangePasswordForm extends Model
 {
     public $email;
-    public $phone;
-    public $nick_name;
-//    public $password;
-    public $first_name;
-    public $last_name;
-    public $gender;
-    public $language_id;
-    public $dateofbirth;
 
     public $useCaptcha = false;
 
@@ -29,8 +21,8 @@ class UpdateNickNameForm extends Model
     public function rules()
     {
         $rules = [
-            [['nick_name'], 'required'],
-            ['nick_name', 'validateName'],
+//            [['email'], 'required'],
+//            ['nick_name', 'validateEmail'],
 
         ];
 
@@ -38,19 +30,16 @@ class UpdateNickNameForm extends Model
         //     $rules[] = [['reCAPTCHA'], \himiklab\yii2\recaptcha\ReCaptchaValidator::className(), 'secret' => \Yii::$app->params['secretCaptcha']];
         // }
         return $rules;
-    }    
+    }
 
 
-    public function validateName($attribute)
+    public function validateEmail($attribute)
     {
-        if($this->nick_name) {
-//            var_dump(Yii::$app->user->id); die;
+        if($this->email) {
             $user = Users::find()->where(['id' => Yii::$app->user->id])->one();
-            $model = Users::find()->where(['nick_name' => $this->nick_name])->one();
-            if($model) {
-                if ($model->id != $user->id) {
-                    $this->addError($attribute, Yii::t('app', 'Зазначене ім\'я вже існує'));
-                }
+            $model = Users::find()->where(['email' => $this->email])->one();
+            if ($model->id != $user->id ) {
+                $this->addError($attribute, Yii::t( 'app','Такой Email уже существует'));
             }
         }
     }
@@ -61,7 +50,7 @@ class UpdateNickNameForm extends Model
     {
         $label = [
            
-            'nick_name' => Yii::t('app', 'Nick name'),
+            'email' => Yii::t('app', 'Email'),
 
         ];
         return $label;
@@ -84,9 +73,9 @@ class UpdateNickNameForm extends Model
         $transaction = Yii::$app->db->beginTransaction();
 
         try {
+            $code = Yii::$app->controller->generateRandomString(16);
             $user = Users::find()->where(['id' => Yii::$app->user->id])->one();
-            $user->nick_name = $this->nick_name;
-
+            $user->personal_code = $code;
             $user->save(false);
 
             $transaction->commit();
@@ -98,7 +87,6 @@ class UpdateNickNameForm extends Model
             throw $e;
         }
 
-        return false;
     }
 
 }
