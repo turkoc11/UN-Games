@@ -152,17 +152,22 @@ class DefaultController extends Controller
                         return $this->render('set-code', ['model' => $twoFactor]);
                     }
                 }
-//                var_dump($login->login()); die;
-                $login->login();
 
-                if (Access::can('super_admin')) {
+                $login->login();
+                $uroles = \Yii::$app->user->identity->assignments;
+//                var_dump($uroles); die;
+                if (in_array('super_admin', $uroles )) {
+//                    var_dump(3333333333333); die;
                     return $this->redirect(['/admin/default/index']);
                 } else {
+//                    var_dump(213123); die;
+//
                     return $this->goBack('profile');
                 }
+
             }
 
-            return $this->goBack('profile');
+//            return $this->goBack('profile');
         }
 
         $this->view->title = Yii::t('app', 'Sign in');
@@ -211,6 +216,7 @@ class DefaultController extends Controller
                 if (Access::can('super_admin')) {
                     return $this->redirect(['/admin/default/index']);
                 } else {
+//                    return $this->goBack('profile');
                     return $this->goBack('profile');
                 }
             }
