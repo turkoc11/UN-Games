@@ -155,7 +155,11 @@ class DefaultController extends Controller
 //                var_dump($login->login()); die;
                 $login->login();
 
-                if (Access::can('super_admin')) return $this->redirect([ '/admin/default/index' ]);
+                if (Access::can('super_admin')) {
+                    return $this->redirect(['/admin/default/index']);
+                } else {
+                    return $this->goBack('profile');
+                }
             }
 
             return $this->goBack();
@@ -204,7 +208,11 @@ class DefaultController extends Controller
 //                var_dump($login->login()); die;
                 $twoFactor->login();
 
-                if (Access::can('super_admin')) return $this->redirect([ '/admin/default/index' ]);
+                if (Access::can('super_admin')) {
+                    return $this->redirect(['/admin/default/index']);
+                } else {
+                    return $this->goBack('profile');
+                }
             }
 
             return $this->goBack();
