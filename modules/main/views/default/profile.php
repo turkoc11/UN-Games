@@ -73,11 +73,11 @@ if(!empty($uroles)) {
                 <img src="" alt="" class="link-icon">
                 <div class="link-text"><?php echo Yii::t('app', 'Security')?></div>
             </a>
-            <a href="" class="sidebar-link">
+            <a href="privacy" class="sidebar-link">
                 <img src="" alt="" class="link-icon">
                 <div class="link-text"><?php echo Yii::t('app', 'Privacy')?></div>
             </a>
-            <a href="" class="sidebar-link">
+            <a href="transactions" class="sidebar-link">
                 <img src="" alt="" class="link-icon">
                 <div class="link-text"><?php echo Yii::t('app', 'Transactions history')?></div>
             </a>

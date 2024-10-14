@@ -240,11 +240,11 @@ class DefaultController extends Controller
            $newUser = \app\models\Users::find()->where(['two_factor_code' => $code])->one();
            $message = \Yii::$app->mailer->compose('twofactor', ['data' => $newUser, 'lang' => $language->local]);
 
-           $message->setFrom( 'shishkalovd@gmail.com' );
-//            $message->setFrom( 'ungames.eu@gmail.com' );
+//           $message->setFrom( 'shishkalovd@gmail.com' );
+            $message->setFrom( 'ungames.eu@gmail.com' );
            $message->setSubject( Yii::t('app', 'Код верификации') );
-           $message->setTo( 'shishkalovd@gmail.com' );
-//            $message->setTo( $user->email );
+//           $message->setTo( 'shishkalovd@gmail.com' );
+            $message->setTo( $user->email );
            $message->send();
        }else{
            // отправка смс пока непонятно через кого
@@ -394,11 +394,11 @@ class DefaultController extends Controller
                 $language = Lang::find()->where(['id' => $user->language_id])->one();
                 $message = \Yii::$app->mailer->compose('changepassword', ['data' => $user, 'lang' => $language->local]);
 
-                $message->setFrom( 'shishkalovd@gmail.com' );
-                //            $message->setFrom( 'ungames.eu@gmail.com' );
+//                $message->setFrom( 'shishkalovd@gmail.com' );
+                            $message->setFrom( 'ungames.eu@gmail.com' );
                 $message->setSubject( Yii::t('app', 'На сайте UN Games вышла новая игра') );
-                $message->setTo( 'shishkalovd@gmail.com' );
-                //            $message->setTo( $user->email );
+//                $message->setTo( 'shishkalovd@gmail.com' );
+                            $message->setTo( $user->email );
                 $message->send();
             }
 
@@ -426,11 +426,11 @@ class DefaultController extends Controller
             $language = Lang::find()->where(['id' => $user->language_id])->one();
             $message = \Yii::$app->mailer->compose('twofactor', ['data' => $user, 'lang' => $language->local]);
 
-            $message->setFrom( 'shishkalovd@gmail.com' );
-//            $message->setFrom( 'ungames.eu@gmail.com' );
+//            $message->setFrom( 'shishkalovd@gmail.com' );
+            $message->setFrom( 'ungames.eu@gmail.com' );
             $message->setSubject( Yii::t('app', 'Код верификации') );
-            $message->setTo( 'shishkalovd@gmail.com' );
-//            $message->setTo( $user->email );
+//            $message->setTo( 'shishkalovd@gmail.com' );
+            $message->setTo( $user->email );
             $message->send();
         }
 

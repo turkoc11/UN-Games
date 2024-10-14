@@ -7,6 +7,7 @@ use app\models\Access;
 use app\models\Subscribe;
 use app\models\Transactions;
 use app\models\Users;
+use app\modules\admin\models\Prize;
 use app\modules\user\models\SendChangePasswordForm;
 use app\modules\user\models\SendEmailCodeForm;
 use app\modules\user\models\SendPhoneCodeForm;
@@ -137,7 +138,9 @@ class DefaultController extends Controller
 
                 ]);
             }
+
             $user = \app\modules\user\models\Users::find()->where(['id' => Yii::$app->user->id])->one();
+            $prize = $this->userPrize($user);
             return $this->render($link, [
                 'model' => $model,
                 'updateProfile' => new UpdateProfileForm(),
@@ -150,8 +153,31 @@ class DefaultController extends Controller
                 'twoFactorForm' =>  new SetTwoFactorForm(),
                 'unSetTwoFactorForm' =>  new UnSetTwoFactorForm(),
                 'user' => $user,
+                'prizes' => $prize,
 
             ]);
+
+    }
+
+    public function userPrize($user)
+    {
+        $prizes = [];
+        if(!\Yii::$app->user->isGuest){
+            $bonuses = Prize::find()->where(['status' => 1])->all();
+            if(!empty($bonuses)) {
+                foreach ($bonuses as $key => $bonus){
+                   if($user->balance >= $bonus->amount) {
+                       $prizes['prize']['name'] = $bonus->name;
+                       if(isset($bonuses[$key + 1])){
+                           $prizes['nextprize']['name'] = $bonuses[$key + 1]->name;
+                           $prizes['nextprize']['percent'] = round(($user->balance/$bonuses[$key + 1]->amount) * 100, 2);
+                       }
+                   }
+                }
+            }
+//            echo '<pre>'; var_dump($prizes); die;
+        }
+        return $prizes;
 
     }
 
