@@ -162,7 +162,7 @@ class DefaultController extends Controller
                 }
             }
 
-            return $this->goBack();
+            return $this->goBack('profile');
         }
 
         $this->view->title = Yii::t('app', 'Sign in');
@@ -215,7 +215,7 @@ class DefaultController extends Controller
                 }
             }
 
-            return $this->goBack();
+            return $this->goBack('profile');
         }
 
 //        $this->view->title = Yii::t('app', 'Sign in');
