@@ -39,7 +39,7 @@ class RegistrationForm extends Model
 //            [['sms_code'], 'required', 'message' => Yii::t('app', "SMS код було вiдправлено на ваш номер телефона")],
             [['language_id', 'gender'], 'integer'],
             [['email', 'email'], 'validateEmail'],
-            [['phone'], 'validatePhone'],
+//            [['phone'], 'validatePhone'],
             ['dateofbirth', 'string'],
 //            ['password', 'validatePassword'],
             ['password', 'string', 'min' => 6],
